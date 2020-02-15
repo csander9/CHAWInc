@@ -1,1 +1,0 @@
-Search Engine Project for CHAWInc, Class Project #3.
