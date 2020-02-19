@@ -7,7 +7,7 @@ package com.CHAWInc.SearchEngine;
 
 /**
  *
- * @author Tinho
+ * @author Walter Goes
  */
 public class SearchEngine extends javax.swing.JFrame {
 
