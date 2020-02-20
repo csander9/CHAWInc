@@ -3,4 +3,4 @@ Team Members - Charles Sanders (Team Lead), Anthony Baudoin, Walter Goes & Hung 
 Team Name - CHAWInc
 Repo URL - https://github.com/csander9/CHAWInc.git
 
-Individual assignments will be listed on the Issue board
+Individual assignments will be listed on the Issue board 
