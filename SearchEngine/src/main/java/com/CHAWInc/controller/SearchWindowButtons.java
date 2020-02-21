@@ -9,10 +9,11 @@ public class SearchWindowButtons {
         // display_Search_Results();
 
     }
-    // pushing code line 16-17 for review
+
     public static void onClickMaintenanceButton() {
         // add code to open up Maintenance Window
-
+        MaintenanceWindow p = new MaintenanceWindow();
+        p.main();
     }
     public static void onClickAboutButton() {
         // add code to open up About window
