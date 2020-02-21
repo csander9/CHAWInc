@@ -15,8 +15,6 @@ public class SearchWindowButtons extends JFrame {
     JRadioButton radioButton2;
     JRadioButton radioButton3;
     ButtonGroup radioGroup;
-    //JLabel Label;
-
 
     public SearchWindowButtons() {
 
@@ -29,7 +27,7 @@ public class SearchWindowButtons extends JFrame {
         //Search button
 
         JButton searchButton = new JButton("Search");
-        searchButton.setBounds(600, 30, 95, 30);
+        searchButton.setBounds(650, 30, 95, 30);
         f.add(searchButton);
 
         //Initialize Radio buttons objs
@@ -44,9 +42,9 @@ public class SearchWindowButtons extends JFrame {
         radioButton3.setText("Exact Phrase");
 
         //Bounds of Radio Buttons
-        radioButton1.setBounds(120, 30, 120, 50);
-        radioButton2.setBounds(250, 30, 120, 50);
-        radioButton3.setBounds(380, 30, 120, 50);
+        radioButton1.setBounds(20, 75, 200, 50);
+        radioButton2.setBounds(240, 75, 200, 50);
+        radioButton3.setBounds(460, 75, 200, 50);
 
         //Add to radioButtons to JFrame
         f.add(radioButton1);
@@ -64,15 +62,8 @@ public class SearchWindowButtons extends JFrame {
         f.add(maintenanceButton);
         //About Button
         JButton aboutButton = new JButton("About");
-        aboutButton.setBounds(600,600, 140,40);
+        aboutButton.setBounds(600,600,140,40);
         f.add(aboutButton);
-
-
-
-
-
-        //Radio buttons
-
 
 
     }
