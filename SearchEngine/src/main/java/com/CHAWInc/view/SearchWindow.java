@@ -101,5 +101,8 @@ public class SearchWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 //ADD EXIT BUTTON
-    //ADD MAINTENANCE WINDOW
+    //ADD MAINTENANCE WINDOW button and it has to work
+
+
+    //Search window in view and searcengine.java
 }
