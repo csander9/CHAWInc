@@ -1,18 +1,21 @@
 package com.CHAWInc.controller;
+import com.CHAWInc.view.*;
+
 // assigned to Hung Truong
 public class SearchWindowButtons {
-    public static void on_Click_Search_Button() {
-        // TODO add code to search with radio button selection
+    public static void onClickSearchButton() {
+        // add code to search with radio button selection
         //              and return search results to main window
         // display_Search_Results();
 
     }
-    public static void on_Click_Maintenance_Button() {
-        // TODO add code to open up Maintenance Window
-        // open_Maintenance_Window();
+    // pushing code line 16-17 for review
+    public static void onClickMaintenanceButton() {
+        // add code to open up Maintenance Window
+
     }
-    public static void on_Click_About_Button() {
-        // TODO add code to open up About window
+    public static void onClickAboutButton() {
+        // add code to open up About window
         // open_About_Window();
     }
 }
