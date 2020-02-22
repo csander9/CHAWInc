@@ -134,13 +134,14 @@ public class SearchWindow extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
         MaintenanceWindow s = new MaintenanceWindow();
-        s.setVisible(true);
+       // s.setVisible(true);      Need to fix this line of code as it seems to screw everything up
+                                    //The error is cannot find symbol
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    //Replaced public static void main with a constructor here
+
+    //public static void main(String []args)
+    public static void main (String [] args){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel
         //setting code (optional) ">
@@ -190,9 +191,5 @@ http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
     private javax.swing.JRadioButton jRadioButton3;
     // End of variables declaration
 
-//ADD EXIT BUTTON
-    //ADD MAINTENANCE WINDOW button and it has to work
 
-
-    //Search window in view and searcengine.java
 }
