@@ -1,5 +1,10 @@
 package com.CHAWInc.view;
-import javax.swing.*; 
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+import com.CHAWInc.controller.MaintenanceWindowButtons; 
 
 public class MaintenanceWindow {
 
@@ -11,10 +16,20 @@ public class MaintenanceWindow {
 		maint.setVisible(true); //making the window visible
 		
 		// Creating exit button for the maintenance window.
-			
+		
 		JButton bye = new JButton("Exit Maintenance");
 		bye.setBounds(500, 500, 200, 40);// Setting location to 500,500 at 100x40 size.
 		maint.add(bye);
+		// trying to add an action listener for the button to close this 
+		// window only on click.
+		//bye.addActionListener(goodbye());
+		}
+
+	public static void goodbye(ActionEvent e) {
+		// trying to close the window only when clicked
+	   //  JFrame.dispose();
+
 	}
+
 }
 
