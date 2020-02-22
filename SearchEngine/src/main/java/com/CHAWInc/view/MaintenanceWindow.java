@@ -1,6 +1,6 @@
 package com.CHAWInc.view;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -8,7 +8,7 @@ import com.CHAWInc.controller.MaintenanceWindowButtons;
 
 public class MaintenanceWindow {
 
-	public static void main(String[] args) {
+	 MaintenanceWindow() {
 		// Creating the JFrame and settings its properties.
 		JFrame maint = new JFrame();
 		maint.setSize(800,600);  
