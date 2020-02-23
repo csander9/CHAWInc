@@ -31,6 +31,11 @@ public class SearchWindow extends JFrame {
   static String allString = "All of the Search Terms";
   static String anyString = "Any of the Search Terms";
   static String exactString = "Exact Phrase";
+
+  static String maintenanceString = "Maintenance";
+  static String aboutString = "About";
+  static String searchString = "Search";
+
   public SearchWindow() {
     JFrame f = new JFrame("Search Engine");
     //GUI Size
@@ -60,7 +65,10 @@ public class SearchWindow extends JFrame {
     f.add(searchTextField);
 
     //Search button
-    JButton searchButton = new JButton("Search");
+    JButton searchButton = new JButton();
+    searchString.setText(searchString);
+    searchButton.setMnemonic(KeyEvent.VK_S);
+    searchButton.setActionCommand(searchString);
     searchButton.setBounds(500, 43, 95, 30);
     f.add(searchButton);
 
@@ -78,7 +86,7 @@ public class SearchWindow extends JFrame {
     anyRadioButton.setMnemonic(KeyEvent.VK_O);
     anyRadioButton.setActionCommand(anyString);
     exactRadioButton.setText(exactString);
-    exactRadioButton.setMnemonic(KeyEvent.VK_E);
+    exactRadioButton.setMnemonic(KeyEvent.VK_P);
     exactRadioButton.setActionCommand(exactString);
 
     //Bounds of Radio Buttons
@@ -104,8 +112,10 @@ public class SearchWindow extends JFrame {
 
     //Maintenance Button
     JButton maintenanceButton = new JButton();
-    maintenanceButton.setText("Maintenace");
-    maintenanceButton.setBounds(50,720, 150,30);
+    maintenanceButton.setText(maintenanceString);
+    maintenanceButton.setMnemonic(KeyEvent.VK_M);
+    maintenanceButton.setActionCommand(maintenanceString);
+    maintenanceButton.setBounds(500, 43, 95, 30);
     f.add(maintenanceButton);
 
     //Number of Files Indexed
@@ -116,7 +126,10 @@ public class SearchWindow extends JFrame {
     f.add(numFilesIndexed);
 
     //About Button
-    JButton aboutButton = new JButton("About");
+    JButton aboutButton = new JButton();
+    aboutButton.setText(aboutString);
+    aboutButton.setMnemonic(KeyEvent.VK_B);
+    aboutButton.setActionCommand(aboutString);
     aboutButton.setBounds(500,720,95,30);
     f.add(aboutButton);
 
