@@ -6,12 +6,16 @@
 package com.CHAWInc.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
-import javax.swing.JFrame;
 
 import com.CHAWInc.controller.MaintenanceWindowButtons;
 
@@ -29,11 +33,6 @@ public class MaintenanceWindow {
 	    heading.setFont(new Font("Arial",Font.BOLD,20));
 		heading.setHorizontalAlignment(JLabel.CENTER);
 	    
-		// White space area
-	   // JTextArea fileArea = new JTextArea(" ");
-	   // maint.add(fileArea);
-	   // fileArea.setBounds(0, 50, 800, 400);
-		
 		// Create Add File button for the maintenance window.
 		JButton addFile = new JButton("Add File");
 		addFile.setBounds(50, 500, 100, 25);
@@ -53,18 +52,16 @@ public class MaintenanceWindow {
 		JButton remove = new JButton("Remove Selected Files");
 		remove.setBounds(550, 500, 175, 25);
 		maint.add(remove);
-
+	    
         //headers for the table
         String[] columns = new String[] {
             "File Name", "Status"
         };
         
         //create table with data
-        JTable fileTable = new JTable(MaintenanceWindowButtons.tableFileData(), columns); 
+        JTable fileTable = new JTable(MaintenanceWindowButtons.tableFileData(), columns);
         JScrollPane sp = new JScrollPane(fileTable);
-		//fileTable.setFillsViewportHeight(true);
-
-		
+        
 		maint.getContentPane().setLayout(new BorderLayout());
         maint.getContentPane().add(heading,BorderLayout.PAGE_START);
         maint.getContentPane().add(sp,BorderLayout.CENTER);
