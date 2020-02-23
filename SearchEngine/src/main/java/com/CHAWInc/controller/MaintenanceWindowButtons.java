@@ -30,5 +30,18 @@ public class MaintenanceWindowButtons {
 		// to the center of the screen
 		
 	}
+
+	public static String[][] tableFileData() {
+		
+		//Stub Data for the file array
+        String[][] files = new String[][] {
+            {"C:/Temp/word-doc.docx", "Indexed"},
+            {"C:/Temp/excel-doc.xlsx", "Indexed"} 
+        };
+		
+		//TODO add code to retrieve file names from the index
+
+		return files;
+	}
 	
 }

@@ -1,7 +1,5 @@
 package com.CHAWInc.model;
 
-import javax.swing.SwingUtilities;
-
 import com.CHAWInc.view.*;
 
 /**
@@ -14,18 +12,19 @@ public class SearchEngine {
 
         //Create and display the main Search Engine window 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+           public void run() {
                 new SearchWindow().setVisible(true);
             }
         });
         
+        
     	//Hungs GUI
-       // SwingUtilities.invokeLater(new Runnable() {
+      //  SwingUtilities.invokeLater(new Runnable() {
 
-        //    public void run() {
+       //    public void run() {
 
-        //       new SearchWindowHung().setVisible(true);
-       //     }
+      //        new SearchWindowHung().setVisible(true);
+      //      }
       //  });
         
     }
