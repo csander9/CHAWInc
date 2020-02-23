@@ -21,7 +21,7 @@ import java.awt.Color;
 import javax.swing.JScrollPane;
 import javax.swing.JPanel;
 
-public class SearchWindowHung extends JFrame {
+public class SearchWindow extends JFrame {
 
   JRadioButton allRadioButton;
   JRadioButton anyRadioButton;
@@ -31,7 +31,7 @@ public class SearchWindowHung extends JFrame {
   static String allString = "All of the Search Terms";
   static String anyString = "Any of the Search Terms";
   static String exactString = "Exact Phrase";
-  public SearchWindowHung() {
+  public SearchWindow() {
     JFrame f = new JFrame("Search Engine");
     //GUI Size
     f.setSize(660,800);

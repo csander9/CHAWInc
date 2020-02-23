@@ -2,7 +2,7 @@ package com.CHAWInc.model;
 
 import javax.swing.SwingUtilities;
 
-import com.CHAWInc.view.*;
+import com.CHAWInc.view;
 
 /**
  * Search Engine
