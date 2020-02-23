@@ -8,12 +8,6 @@ public class SearchWindowButtons {
         // add code to search with radio button selection
         //              and return search results to main window
         // display_Search_Results();
-
-    }
-
-    public static void onClickMaintenanceButton() {
-        MaintenanceWindow p = new MaintenanceWindow();
-        p.main();
     }
     public static void onClickAboutButton() {
         Object[] options = {"OK"};
