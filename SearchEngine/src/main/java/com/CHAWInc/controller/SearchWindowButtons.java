@@ -1,7 +1,7 @@
 package com.CHAWInc.controller;
 import com.CHAWInc.view.*;
 
-// assigned to Hung Truong
+
 public class SearchWindowButtons {
     public static void onClickSearchButton() {
         // add code to search with radio button selection
@@ -11,7 +11,6 @@ public class SearchWindowButtons {
     }
 
     public static void onClickMaintenanceButton() {
-        // add code to open up Maintenance Window
         MaintenanceWindow p = new MaintenanceWindow();
         p.main();
     }
