@@ -19,13 +19,14 @@ public class SearchEngine {
             }
         });
         
-        SwingUtilities.invokeLater(new Runnable() {
+    	//Hungs GUI
+       // SwingUtilities.invokeLater(new Runnable() {
 
-            public void run() {
+        //    public void run() {
 
-                new SearchWindowHung().setVisible(true);
-            }
-        });
+        //       new SearchWindowHung().setVisible(true);
+       //     }
+      //  });
         
     }
 }
