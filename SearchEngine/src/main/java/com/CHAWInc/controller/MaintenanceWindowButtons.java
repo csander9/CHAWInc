@@ -2,6 +2,8 @@ package com.CHAWInc.controller;
 
 //Assigned to Charles Sanders
 
+//This method adds the selected files from the hard disk
+//to the index file
 public class MaintenanceWindowButtons {
 	
 	public static void clickAddFile() {
@@ -11,6 +13,7 @@ public class MaintenanceWindowButtons {
 		
 	}
 	
+//This method removes the select ed file form the index file.
 	public static void clickRemoveSelectedFiles() {
 		
 		//TODO display Yes/No/Cancel popup with
@@ -18,12 +21,14 @@ public class MaintenanceWindowButtons {
 		// < FIle Name >
 	}
 	
+//This method rebuild the index file.
 	public static void clickRebuildOutOfDate() {
 		
 		//TODO add code to rebuild the index
 		
 	}
-	
+
+//This method resets the position of the windows
 	public static void clickResetWindows() {
 		
 		//TODO add code to move 1 or both windows
@@ -31,6 +36,8 @@ public class MaintenanceWindowButtons {
 		
 	}
 
+//This method retrieves the file names from the index file
+// to display in the maintenance window.
 	public static String[][] tableFileData() {
 		
 		//Stub Data for the file array
