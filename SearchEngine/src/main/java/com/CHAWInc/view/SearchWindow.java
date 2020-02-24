@@ -39,6 +39,7 @@ public class SearchWindow extends JFrame {
   public SearchWindow() {
     JFrame f = new JFrame("Search Engine");
     //GUI Size
+    f.setLocation( 450, 25 );
     f.setSize(660,800);
     f.setLayout(null);
     f.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -66,7 +67,7 @@ public class SearchWindow extends JFrame {
 
     //Search button
     JButton searchButton = new JButton();
-    searchString.setText(searchString);
+    searchButton.setText(searchString);
     searchButton.setMnemonic(KeyEvent.VK_S);
     searchButton.setActionCommand(searchString);
     searchButton.setBounds(500, 43, 95, 30);
@@ -115,7 +116,7 @@ public class SearchWindow extends JFrame {
     maintenanceButton.setText(maintenanceString);
     maintenanceButton.setMnemonic(KeyEvent.VK_M);
     maintenanceButton.setActionCommand(maintenanceString);
-    maintenanceButton.setBounds(500, 43, 95, 30);
+    maintenanceButton.setBounds(50,718, 110, 30);
     f.add(maintenanceButton);
 
     //Number of Files Indexed
