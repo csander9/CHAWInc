@@ -9,6 +9,7 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
@@ -29,24 +30,54 @@ public class MaintenanceWindow {
 		heading.setHorizontalAlignment(JLabel.CENTER);
 	    
 		// Create Add File button for the maintenance window.
-		JButton addFile = new JButton( "Add File" );
+		String addFileString = "Add File";
+		JButton addFile = new JButton();
+		addFile.setText(addFileString);
+		addFile.setMnemonic(KeyEvent.VK_A);
+		addFile.setActionCommand(addFileString);
 		addFile.setBounds( 50, 500, 100, 25 );
 		maint.add( addFile );
 
 		// Create reset windows button for the maintenance window.
-		JButton reset = new JButton("Reset Windows");
+		String resetString = "Reset Windows";
+		JButton reset = new JButton();
+		reset.setText(resetString);
+		reset.setMnemonic(KeyEvent.VK_W);
+		reset.setActionCommand(resetString);
 		reset.setBounds( 15, 533, 135, 25 );
 		maint.add( reset );
 		
 		// Create Rebuild Out of date file button for the maintenance window.
-		JButton rebuild = new JButton( "Rebuild Out-of-Date" );
+		String rebuildString = "Rebuild Out-of-date";
+		JButton rebuild = new JButton();
+		rebuild.setText(rebuildString);
+		rebuild.setMnemonic(KeyEvent.VK_O);
+		rebuild.setActionCommand(rebuildString);
+		//rebuild.setBounds( 50, 500, 100, 25 );
 		rebuild.setBounds( 300, 500, 155, 25 );
 		maint.add(rebuild);
 		
 		// Create the Remove Selected Files button for the maintenance window.
-		JButton remove = new JButton( "Remove Selected Files" );
+		String removeString = "Remove Selected Files";
+		JButton remove = new JButton();
+		remove.setText(removeString);
+		remove.setMnemonic(KeyEvent.VK_R);
+		remove.setActionCommand(removeString);
 		remove.setBounds( 550, 500, 175, 25 );
-		maint.add( remove );
+		maint.add(remove);
+		
+	    //Number of Files Indexed
+	    JLabel numFilesIndexed2 = new JLabel();
+	    numFilesIndexed2.setText("Number of Files Indexed: 6 ");
+	    numFilesIndexed2.setBounds(300,533,200,25);
+	    maint.add(numFilesIndexed2);
+	    
+	    //Search Engine Version
+	    JLabel searchEngineVersion = new JLabel();
+	    searchEngineVersion.setText("Search Engine Version 1.0 ");
+	    searchEngineVersion.setBounds(560,533,200,25);
+	    maint.add(searchEngineVersion);
+	    
 	    
         //headers for the table
         String[] columns = new String[] {
