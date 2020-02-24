@@ -6,12 +6,7 @@
 package com.CHAWInc.view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -23,7 +18,7 @@ public class MaintenanceWindow {
 
 	 MaintenanceWindow() {
 		 
-		// Creat the JFrame and settings its properties.
+		// Create the JFrame and settings its properties.
 		final JFrame maint = new JFrame();
 		
 		maint.setTitle( "Search Engine Maintenance" );
