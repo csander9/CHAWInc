@@ -66,6 +66,7 @@ public class MaintenanceWindow {
         maint.getContentPane().add(heading,BorderLayout.PAGE_START);
         maint.getContentPane().add(sp,BorderLayout.CENTER);
 
+        maint.setLocation( 375, 100 );
 		maint.setSize(800,600);
 		maint.setVisible(true); //making the window visible
 		

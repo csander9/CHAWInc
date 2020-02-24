@@ -1,11 +1,11 @@
 package com.CHAWInc.model;
 
-import javax.swing.SwingUtilities;
-
 import com.CHAWInc.view.*;
 
 /**
- * Search Engine
+ * Search Engine Program Project #3.
+ * 
+ * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
  *    
  */
 public class SearchEngine {
@@ -13,19 +13,9 @@ public class SearchEngine {
     public static void main(String args[]) {
 
         //Create and display the main Search Engine window 
-      //  java.awt.EventQueue.invokeLater(new Runnable() {
-      //     public void run() {
-      //          new SearchWindow().setVisible(true);
-      //      }
-      //  });
-        
-        
-    	//Hungs GUI
-        SwingUtilities.invokeLater(new Runnable() {
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
            public void run() {
-
-              new SearchWindowHung();
+                new SearchWindow();
             }
         });
         
