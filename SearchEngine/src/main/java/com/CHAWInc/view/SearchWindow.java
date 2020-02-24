@@ -17,7 +17,11 @@ import java.awt.Color;
 
 public class SearchWindow extends JFrame {
 
-  JRadioButton allRadioButton;
+  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+JRadioButton allRadioButton;
   JRadioButton anyRadioButton;
   JRadioButton exactRadioButton;
   ButtonGroup radioGroup;
@@ -67,7 +71,7 @@ public class SearchWindow extends JFrame {
     searchButton.setBounds(500, 43, 95, 30);
     f.add(searchButton);
 
-    //Initialize Radio buttons objs
+    //Initialize Radio buttons objects
     radioGroup = new ButtonGroup();
     JRadioButton allRadioButton = new JRadioButton();
     JRadioButton anyRadioButton = new JRadioButton();
@@ -117,7 +121,7 @@ public class SearchWindow extends JFrame {
     JLabel numFilesIndexed = new JLabel();
     numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
     numFilesIndexed.setText("Number of Files Indexed: 0 ");
-    numFilesIndexed.setBounds(250,709,200,50);
+    numFilesIndexed.setBounds(230,709,200,50);
     f.add(numFilesIndexed);
 
     //About Button
@@ -128,21 +132,21 @@ public class SearchWindow extends JFrame {
     aboutButton.setBounds(500,720,95,30);
     f.add(aboutButton);
 
-    //ActionListener Maintenance btn
+    //ActionListener Maintenance button
     maintenanceButton.addActionListener( new ActionListener(){
       public void actionPerformed(ActionEvent e){
         new MaintenanceWindow();
       }
     });
 
-    //ActionListener About Btn
+    //ActionListener About button
     aboutButton.addActionListener( new ActionListener(){
       public void actionPerformed(ActionEvent e){
         SearchWindowButtons.onClickAboutButton();
       }
     });
 
-    //ActionListener Search btn
+    //ActionListener Search button
     searchButton.addActionListener( new ActionListener(){
       public void actionPerformed(ActionEvent e){
         SearchWindowButtons.onClickSearchButton();
