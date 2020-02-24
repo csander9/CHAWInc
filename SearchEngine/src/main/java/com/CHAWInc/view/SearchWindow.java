@@ -56,7 +56,7 @@ JRadioButton allRadioButton;
     //Search Terms:
     JLabel topLabel = new JLabel();
     topLabel.setText("Search Terms: ");
-    topLabel.setBounds(15,30,115,50);
+    topLabel.setBounds(45,30,115,50);
     f.add(topLabel);
 
     JTextField searchTextField = new JTextField();
