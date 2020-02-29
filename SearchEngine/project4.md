@@ -1,5 +1,4 @@
-Pseudocode for
-Search Engine Maintenace Window
+#Pseudocode for Search Engine Maintenace Window
 
 //1 
 	clickAddFileButton()
