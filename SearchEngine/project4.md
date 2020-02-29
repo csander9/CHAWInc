@@ -2,21 +2,27 @@
 //For Maintenace Window
 
 clickAddFileButton() //ArrayList // java.util.ArrayList
+	
 	-opens operating system window "Select File to Index"
 	
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
 		arrayListObject.add("Filename.txt");
 	-show Status, "Indexed || "File Changed Since Last Index"
 clickRestWindowButton()
+	
 	-resets Maintenance Window to starting position
 rebuildOutOfDateButton()
+	
 	... // I'm unclear here
+	
 removedSelectedFiles //JOptionPane
+	
 	options: select all, select one, select a few
 	JOptionPane: title: "Select an option", "Remove these files from the Index:", Yes,No,Cancel
 		arrayListObject.remove(int index)
 		arrayListObject.remove()
 		arrayListObject.clear()
+		
 arrayListObject.size(); //from java.util.ArrayList //"Numbers of Files Indexed" JLabel
 
 
