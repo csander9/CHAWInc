@@ -1,4 +1,5 @@
-Pseudocode for Search Engine Project 4
+//Pseudocode for Search Engine Project 4
+//For Maintenace Window
 
 clickAddFileButton() //ArrayList
 	-opens operating system window "Select File to Index"
