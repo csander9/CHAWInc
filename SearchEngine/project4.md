@@ -23,10 +23,14 @@ removedSelectedFiles //JOptionPane
 		arrayListObject.remove()
 		arrayListObject.clear()
 		
-arrayListObject.size(); //from java.util.ArrayList //"Numbers of Files Indexed" JLabel
+arrayListObject.size(); 
+	
+	//from java.util.ArrayList 
+	//"Numbers of Files Indexed" JLabel
 
 
 //Pseudocode for Search Engine Window
-//import java.util.ArrayList
-//possible?  
-ListIterator<E>	listIterator​(int index)
+	
+	import java.util.ArrayList
+	//possible?  
+		ListIterator<E>	listIterator​(int index)
