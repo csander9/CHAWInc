@@ -1,5 +1,6 @@
-//Pseudocode for Search Engine Project 4
-//For Maintenace Window
+#Pseudocode for Search Engine Project 4
+
+#	For Maintenace Window
 
 clickAddFileButton() //ArrayList // java.util.ArrayList
 	
