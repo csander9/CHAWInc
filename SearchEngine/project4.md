@@ -8,9 +8,11 @@ clickAddFileButton() //ArrayList // java.util.ArrayList
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
 		arrayListObject.add("Filename.txt");
 	-show Status, "Indexed || "File Changed Since Last Index"
+		a Watch* event in java.nio.files
 clickRestWindowButton()
 	
 	-resets Maintenance Window to starting position
+	
 rebuildOutOfDateButton()
 	
 	... // I'm unclear here
