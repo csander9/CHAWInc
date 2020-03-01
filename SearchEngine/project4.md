@@ -2,7 +2,7 @@
 
 #	For Maintenace Window
 
-clickAddFileButton() //ArrayList // java.util.ArrayList
+clickAddFileButton() //ArrayList // java.util.ArrayList//isClass    or List ? //interface
 	
 	-opens operating system window "Select File to Index"
 		java.nio.file.Files.inputStream()
