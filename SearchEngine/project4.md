@@ -4,13 +4,15 @@
 
 clickAddFileButton() 
 
-	//example List<Movie> listOfMovies = new ArrayList<Movie>()
-		from https://www.java67.com/2016/01/difference-between-list-and-arraylist-variable-in-java.html
+	
 	
 	-opens operating system window "Select File to Index"
 		java.nio.file.Files.inputStream()
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
 		arrayListObject.add("Filename.txt");
+		also
+			//example List<Movie> listOfMovies = new ArrayList<Movie>()
+		from https://www.java67.com/2016/01/difference-between-list-and-arraylist-variable-in-java.html
 	-show Status, "Indexed || "File Changed Since Last Index"
 		a Watch* event in java.nio.files
 clickRestWindowButton()
