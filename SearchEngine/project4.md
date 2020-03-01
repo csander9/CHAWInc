@@ -1,4 +1,4 @@
-#Pseudocode for Search Engine Project 4
+#	Pseudocode for Search Engine Project 4
 
 #	For Maintenace Window
 
