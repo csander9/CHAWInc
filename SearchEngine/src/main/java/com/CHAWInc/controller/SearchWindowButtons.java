@@ -3,10 +3,18 @@ import javax.swing.JOptionPane;
 
 
 public class SearchWindowButtons {
-    public static void onClickSearchButton() {
+	
+    public static String[][] onClickSearchButton() {
         // add code to search with radio button selection
         //              and return search results to main window
         // display_Search_Results();
+    	
+    	String[][] searchFiles = {
+    			{"C:/Temp/word-doc.docx"},
+    			{"C:/Temp/excel-doc1.xlsx"}
+    	};
+            
+    	return searchFiles;
     }
     public static void onClickAboutButton() {
         Object[] options = {"OK"};

@@ -43,11 +43,11 @@ public class MaintenanceWindowButtons {
 		//Stub Data for the file array
         String[][] files = new String[][] {
             {"C:/Temp/word-doc.docx", "Indexed"},
-            {"C:/Temp/excel-doc.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc.xlsx", "Indexed"}
+            {"C:/Temp/excel-doc1.xlsx", "Indexed"},
+            {"C:/Temp/excel-doc2.xlsx", "Indexed"},
+            {"C:/Temp/excel-doc3.xlsx", "Indexed"},
+            {"C:/Temp/excel-doc4.xlsx", "Indexed"},
+            {"C:/Temp/excel-doc5.xlsx", "Indexed"}
             
         };
 		
