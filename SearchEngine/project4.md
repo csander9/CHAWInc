@@ -9,6 +9,7 @@ clickAddFileButton()
 	-opens operating system window "Select File to Index"
 		-JFileChooser
 		//wrong? java.nio.file.Files.inputStream()
+		- filter .txt files as default
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
 		arrayListObject.add("Filename.txt");
 		also
@@ -22,7 +23,7 @@ clickRestWindowButton()
 	
 rebuildOutOfDateButton()
 	
-	... // I'm unclear here
+	- Tooltip says: "Re-index any files modified since they were indexed."
 	
 removedSelectedFiles //JOptionPane
 	
