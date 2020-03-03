@@ -7,7 +7,8 @@ clickAddFileButton()
 	
 	
 	-opens operating system window "Select File to Index"
-		java.nio.file.Files.inputStream()
+		-JFileChooser
+		//wrong? java.nio.file.Files.inputStream()
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
 		arrayListObject.add("Filename.txt");
 		also
