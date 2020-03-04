@@ -43,7 +43,7 @@ JLabel that updates "Number of Files Indexed"
 
 
 //populating files for Search Engine Window
-	***Assigned Chuck***
+	***Assigned Chuck*** 
 	import java.util.ArrayList
 	//possible?  
 		ListIterator<E>	listIterator​(int index)
