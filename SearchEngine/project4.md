@@ -5,7 +5,9 @@
 clickAddFileButton() 
 
 	
-	***finish by 3/8***
+	***partially finish by 3/8***
+		Hung & Walter
+			but feel free to join
 	
 	-opens operating system window "Select File to Index"
 		-JFileChooser						
@@ -20,7 +22,7 @@ clickAddFileButton()
 		a Watch* event in java.nio.files
 		
 clickRestWindowButton() ***finish by 3/8***
-	
+		***Assign Anthony**
 	-resets Maintenance Window to starting position
 	
 rebuildOutOfDateButton()
@@ -29,7 +31,7 @@ rebuildOutOfDateButton()
 		updates Index
 	
 removedSelectedFiles //JOptionPane ***finish by 3/8***
-	
+		***Assign Anthony**
 	options: select all, select one, select a few
 	JOptionPane: title: "Select an option", "Remove these files from the Index:", Yes,No,Cancel
 		arrayListObject.remove(int index)
