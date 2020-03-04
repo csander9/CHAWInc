@@ -40,9 +40,10 @@ JLabel that updates "Number of Files Indexed"
 	
 	//from java.util.ArrayList 
 	//"Numbers of Files Indexed" JLabel
+	- get length of Index
 
 
-//populating files for Search Engine Window
+//populating files for Maintenance Window
 	***Assigned Chuck*** 
 	import java.util.ArrayList
 	//possible?  
