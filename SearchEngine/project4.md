@@ -5,9 +5,10 @@
 clickAddFileButton() 
 
 	
+	***finish by 3/8***
 	
 	-opens operating system window "Select File to Index"
-		-JFileChooser
+		-JFileChooser						
 		//wrong? java.nio.file.Files.inputStream()
 		- filter .txt files as default
 	-add file object's absolute path to index // "C:/Users/Hung/Random.txt" //java.nio.file.Path
@@ -17,15 +18,17 @@ clickAddFileButton()
 		from https://www.java67.com/2016/01/difference-between-list-and-arraylist-variable-in-java.html
 	-show Status, "Indexed || "File Changed Since Last Index"
 		a Watch* event in java.nio.files
-clickRestWindowButton()
+		
+clickRestWindowButton() ***finish by 3/8***
 	
 	-resets Maintenance Window to starting position
 	
 rebuildOutOfDateButton()
 	
 	- Tooltip says: "Re-index any files modified since they were indexed."
+		updates Index
 	
-removedSelectedFiles //JOptionPane
+removedSelectedFiles //JOptionPane ***finish by 3/8***
 	
 	options: select all, select one, select a few
 	JOptionPane: title: "Select an option", "Remove these files from the Index:", Yes,No,Cancel
@@ -33,14 +36,14 @@ removedSelectedFiles //JOptionPane
 		arrayListObject.remove()
 		arrayListObject.clear()
 		
-arrayListObject.size(); 
+JLabel that updates "Number of Files Indexed"
 	
 	//from java.util.ArrayList 
 	//"Numbers of Files Indexed" JLabel
 
 
-//Pseudocode for Search Engine Window
-	
+//populating files for Search Engine Window
+	***Assigned Chuck***
 	import java.util.ArrayList
 	//possible?  
 		ListIterator<E>	listIterator​(int index)
