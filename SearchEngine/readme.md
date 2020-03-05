@@ -1,5 +1,5 @@
 Team Name: CHAWInc;
-Team Members: Charles Sanders (team lead), Anthony Baudoin, Hung Truong, Walter Goes;
+Team Members: Charles Sanders, Anthony Baudoin, Hung Truong (team lead), Walter Goes;
 Repo URL: https://github.com/csander9/CHAWInc.git ;
 
 Work Procedures:
