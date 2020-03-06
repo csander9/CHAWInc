@@ -4,7 +4,8 @@
  */
 
 package com.CHAWInc.view;
-
+import javax.swing.JFileChooser;
+import java.io.File; 
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,17 @@ import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 import com.CHAWInc.controller.MaintenanceWindowButtons;
+
+public class JFileChooser{
+   
+JFileChooser fileChooser = new JFileChooser();
+fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+int result = fileChooser.showOpenDialog(this);
+if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = fileChooser.getSelectedFile();
+    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+}
+}
 
 public class MaintenanceWindow {
 
