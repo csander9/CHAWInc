@@ -114,7 +114,11 @@ public class MaintenanceWindow {
 	    // listener for the Rebuild button
 	    rebuild.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickRebuildOutOfDate();             
+	        	try {
+					MaintenanceWindowButtons.clickRebuildOutOfDate();
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				}             
 	        }
 	    });
 	    
