@@ -14,7 +14,7 @@ public class SearchWindowButtons {
     			{"C:/Temp/excel-doc1.xlsx"}
     	};
             
-    	return searchFiles;
+        return searchFiles;
     }
     public static void onClickAboutButton() {
         Object[] options = {"OK"};

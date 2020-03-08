@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
 
 import javax.swing.*;
 
@@ -17,7 +18,7 @@ import com.CHAWInc.controller.MaintenanceWindowButtons;
 
 public class MaintenanceWindow {
 
-	 MaintenanceWindow() {
+	 MaintenanceWindow() throws FileNotFoundException {
 		 
 		// Create the JFrame and settings its properties.
 		final JFrame maint = new JFrame();

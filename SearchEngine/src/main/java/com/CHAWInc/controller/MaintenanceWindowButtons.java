@@ -1,5 +1,10 @@
 package com.CHAWInc.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+
 //Assigned to Charles Sanders
 
 //This method adds the selected files from the hard disk
@@ -38,22 +43,43 @@ public class MaintenanceWindowButtons {
 
 //This method retrieves the file names from the index file
 // to display in the maintenance window.
-	public static String[][] tableFileData() {
-		
-		//Stub Data for the file array
-        String[][] files = new String[][] {
-            {"C:/Temp/word-doc.docx", "Indexed"},
-            {"C:/Temp/excel-doc1.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc2.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc3.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc4.xlsx", "Indexed"},
-            {"C:/Temp/excel-doc5.xlsx", "Indexed"}
-            
-        };
-		
-		//TODO add code to retrieve file names from the index
+	public static String[][] tableFileData() throws FileNotFoundException {
 
-		return files;
+        int i = -1;
+
+    	String ind = "Indexed";
+    	String notInd = "File Changed Since Last Indexed";
+
+		//Retrieve file names from the index
+        File indexFile = new File("/Users/csand/searchEngine/SearchEngineIndex.txt");
+
+        String[][] files = new String[20][2];
+    	
+    	
+        Scanner sc = new Scanner( indexFile );
+	
+        while (sc.hasNextLine() ) {
+            i+=1;
+	        files[i][0] = sc.nextLine();
+	        
+	        String fileName = files[i][0].substring( 0, files[i][0].indexOf(","));	        
+	        File fileDate = new File(fileName);
+	        
+        	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        	String indexDate = files[i][0].substring(files[i][0].indexOf(",")+1, files[i][0].length());
+	    	String currentDate = sdf.format(fileDate.lastModified());
+	    	
+	    	if (indexDate.equals(currentDate))
+	    		files[i][1] = ind;
+	    	else
+	    		files[i][1] = notInd;
+	    		
+        }	
+		
+
+        return files;
 	}
 	
+ 
+
 }

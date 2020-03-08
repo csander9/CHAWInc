@@ -13,6 +13,8 @@ import com.CHAWInc.controller.SearchWindowButtons;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.BorderLayout;
@@ -135,17 +137,14 @@ public class SearchWindow extends JFrame {
         aboutButton.setActionCommand(aboutString);
         aboutButton.setBounds(500,720,95,30);
         f.add(aboutButton);
-
-    	String[][] searchFiles = {
-    			{null},
-    			{null}
-    	};
     	      
+        String[][] searchFiles = new String[20][1];
+        
 	    String colHeading[] = {"Search Results"};
+	    //final JTable searchTable = new JTable();
         final JTable searchTable = new JTable(searchFiles, colHeading);
 
-	    JScrollPane sp = new JScrollPane( searchTable );
-	    sp.setPreferredSize(new Dimension(300,400));
+        JScrollPane sp = new JScrollPane( searchTable );
 	    
         f.getContentPane().setLayout( new BorderLayout() );
     	f.getContentPane().add(sp,BorderLayout.SOUTH);
@@ -155,7 +154,12 @@ public class SearchWindow extends JFrame {
         //ActionListener Maintenance button
         maintenanceButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                new MaintenanceWindow();
+                try {
+					new MaintenanceWindow();
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
           }
         });
 
