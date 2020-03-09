@@ -33,12 +33,14 @@ public class MaintenanceWindowButtons {
 //This method rebuild the index file.
 	public static void clickRebuildOutOfDate() throws FileNotFoundException {
 		
+    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    	
 		//Rebuild the out-of-date index
         int i = -1;
 
 		//Retrieve file names from the index
         File indexFile = new File("C:/Users/Public/Documents/SearchEngineIndex.txt");
-
+        	
         String[] files = new String[20];
         String[] outFiles = new String[20];
         
@@ -54,7 +56,6 @@ public class MaintenanceWindowButtons {
 	        String fileName = files[i].substring( 0, files[i].indexOf(","));	        
 	        File fileDate = new File(fileName);
        
-        	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	    	String currentDate = sdf.format(fileDate.lastModified());
         
 	    	j+=1;
@@ -70,12 +71,12 @@ public class MaintenanceWindowButtons {
         
         // Create a new file output stream.
         PrintStream fileOut = new PrintStream("C:/Users/Public/Documents/SearchEngineIndex.txt");
-        
+		
         // Redirect standard out to file.
         System.setOut(fileOut);
-   
+        
         int x = 0;
-        for ( x=0; x <= j; ++x) {
+        for ( x=0; x <= j; ++x ) {
             System.out.println(outFiles[x]);
         }
         
@@ -105,6 +106,8 @@ public class MaintenanceWindowButtons {
 	public static String[][] tableFileData() throws FileNotFoundException {
 
         int i = -1;
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 
     	String ind = "Indexed";
     	String notInd = "File Changed Since Last Indexed";
@@ -112,19 +115,39 @@ public class MaintenanceWindowButtons {
 		//Retrieve file names from the index
         File indexFile = new File("C:/Users/Public/Documents/SearchEngineIndex.txt");
 
+        String indexFileDate = sdf.format(indexFile.lastModified());
+    	if (indexFileDate.equals( "12/31/1969 19:00:00" )) {
+            // Save original out stream.
+            PrintStream originalOut = System.out;
+            
+            // Create a new file output stream.
+            PrintStream fileOut = new PrintStream("C:/Users/Public/Documents/SearchEngineIndex.txt");
+    		
+            // Redirect standard out to file.
+            System.setOut(fileOut);
+    		
+    		System.out.println("");
+    		
+    		System.setOut(originalOut);
+    	}        
+        
+        
         String[][] files = new String[20][2];
     	
         @SuppressWarnings("resource")
 		Scanner sc = new Scanner( indexFile );
 	
         while (sc.hasNextLine() ) {
-            i+=1;
+        	
+        	i+=1;
 	        files[i][0] = sc.nextLine();
+	        
+	        if (files[0][0].equals(""))
+	        	break;
 	        
 	        String fileName = files[i][0].substring( 0, files[i][0].indexOf(","));	        
 	        File fileDate = new File(fileName);
        
-        	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         	String indexDate = files[i][0].substring(files[i][0].indexOf(",")+1, files[i][0].length());
 	    	String currentDate = sdf.format(fileDate.lastModified());
 	    	
