@@ -45,6 +45,8 @@ public class MaintenanceWindowButtons {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner( indexFile );
 	
+		int j = -1;
+		
         while (sc.hasNextLine() ) {
             i+=1;
 	        files[i] = sc.nextLine();
@@ -54,8 +56,12 @@ public class MaintenanceWindowButtons {
        
         	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	    	String currentDate = sdf.format(fileDate.lastModified());
-	    	
-            outFiles[i] = fileName + "," + currentDate;
+        
+	    	j+=1;
+	    	if (currentDate.equals( "12/31/1969 19:00:00" ))
+                j-=1;
+	    	else
+	    		outFiles[j] = fileName + "," + currentDate;
 	    	
         }
         
@@ -69,7 +75,7 @@ public class MaintenanceWindowButtons {
         System.setOut(fileOut);
    
         int x = 0;
-        for ( x=0; x <= i; ++x) {
+        for ( x=0; x <= j; ++x) {
             System.out.println(outFiles[x]);
         }
         
