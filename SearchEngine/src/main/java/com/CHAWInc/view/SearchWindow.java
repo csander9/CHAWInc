@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 
 public class SearchWindow extends JFrame {
 

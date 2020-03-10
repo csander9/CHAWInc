@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
+import com.CHAWInc.view.SearchWindow;
 
 import javax.swing.*;
 
@@ -107,7 +108,9 @@ public class MaintenanceWindow {
 		// listener for the Reset Windows Button	    
 	    reset.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickResetWindows();             
+	        	
+	        	maint.setLocation( 375, 100 );
+	        //	f.setLocation( 450, 25 );
 	        }
 	    });
 	    

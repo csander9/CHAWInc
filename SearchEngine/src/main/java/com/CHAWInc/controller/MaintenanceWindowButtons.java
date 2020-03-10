@@ -92,14 +92,6 @@ public class MaintenanceWindowButtons {
                 options[0]);
 	}
 
-//This method resets the position of the windows
-	public static void clickResetWindows() {
-		
-		//TODO add code to move 1 or both windows
-		// to the center of the screen
-		
-	}
-
 //This method retrieves the file names from the index file
 // to display in the maintenance window.  It checks to see if the files are
 //out of date and	
