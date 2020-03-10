@@ -1,53 +1,53 @@
+
 /* This is the GUI program for the maintenance window
- * 
- * @authors Anthony Baudoin, Charles Sanders, Hung Truong
+ *
+ * @authors Anthony Baudoin, Charles Sanders, Hung Truong, Walter Goes
  */
+
+
 
 package com.CHAWInc.view;
 import javax.swing.JFileChooser;
-import java.io.File; 
+import java.io.File;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-
 import javax.swing.*;
-
 import com.CHAWInc.controller.MaintenanceWindowButtons;
 
 public class JFileChooser{
-   
-JFileChooser fileChooser = new JFileChooser();
-fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-int result = fileChooser.showOpenDialog(this);
-if (result == JFileChooser.APPROVE_OPTION) {
-    File selectedFile = fileChooser.getSelectedFile();
-    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
-}
-}
 
+	JFileChooser fileChooser = new JFileChooser();
+fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+	int result = fileChooser.showOpenDialog(this);
+if (result == JFileChooser.APPROVE_OPTION) {
+		File selectedFile = fileChooser.getSelectedFile();
+		System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+	}
+}
 public class MaintenanceWindow {
 
-	 MaintenanceWindow() {
-		 
+	MaintenanceWindow () {
+
 		// Create the JFrame and settings its properties.
 		final JFrame maint = new JFrame();
-		
+
 		maint.setTitle( "Search Engine Maintenance" );
-		
+
 		// heading
 		JLabel heading = new JLabel( "Search Engine - Index Maintenance" );
-	    heading.setFont(new Font( "Arial",Font.BOLD,20 ));
+		heading.setFont(new Font( "Arial",Font.BOLD,20 ));
 		heading.setHorizontalAlignment(JLabel.CENTER);
-	    
+
 		// Create Add File button for the maintenance window.
 		String addFileString = "Add File";
 		JButton addFile = new JButton();
 		addFile.setText(addFileString);
 		addFile.setMnemonic(KeyEvent.VK_A);
 		addFile.setActionCommand(addFileString);
-		addFile.setBounds( 50, 500, 100, 25 );
+		addFile.setBounds( 50, 505, 100, 25 );
 		maint.add( addFile );
 
 		// Create reset windows button for the maintenance window.
@@ -58,7 +58,7 @@ public class MaintenanceWindow {
 		reset.setActionCommand(resetString);
 		reset.setBounds( 15, 533, 135, 25 );
 		maint.add( reset );
-		
+
 		// Create Rebuild Out of date file button for the maintenance window.
 		String rebuildString = "Rebuild Out-of-date";
 		JButton rebuild = new JButton();
@@ -68,7 +68,7 @@ public class MaintenanceWindow {
 		//rebuild.setBounds( 50, 500, 100, 25 );
 		rebuild.setBounds( 300, 500, 155, 25 );
 		maint.add(rebuild);
-		
+
 		// Create the Remove Selected Files button for the maintenance window.
 		String removeString = "Remove Selected Files";
 		JButton remove = new JButton();
@@ -77,63 +77,64 @@ public class MaintenanceWindow {
 		remove.setActionCommand(removeString);
 		remove.setBounds( 550, 500, 175, 25 );
 		maint.add(remove);
-		
-	    //Number of Files Indexed
-	    JLabel numFilesIndexed2 = new JLabel();
-	    numFilesIndexed2.setText("Number of Files Indexed: 6 ");
-	    numFilesIndexed2.setBounds(300,533,200,25);
-	    maint.add(numFilesIndexed2);
-	    
-	    //Search Engine Version
-	    JLabel searchEngineVersion = new JLabel();
-	    searchEngineVersion.setText("Search Engine Version 1.0 ");
-	    searchEngineVersion.setBounds(560,533,200,25);
-	    maint.add(searchEngineVersion);
-	    
-	    
-        //headers for the table
-        String[] columns = new String[] {
-            "File Name", "Status"
-        };
-        
-        //create table with data
-        JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
-        JScrollPane sp = new JScrollPane( fileTable );
-        
-		maint.getContentPane().setLayout( new BorderLayout() );
-        maint.getContentPane().add(heading,BorderLayout.PAGE_START);
-        maint.getContentPane().add(sp,BorderLayout.CENTER);
 
-        maint.setLocation( 375, 100 );
+		//Number of Files Indexed
+		JLabel numFilesIndexed2 = new JLabel();
+		numFilesIndexed2.setText("Number of Files Indexed: 6 ");
+		numFilesIndexed2.setBounds(300,533,200,25);
+		maint.add(numFilesIndexed2);
+
+		//Search Engine Version
+		JLabel searchEngineVersion = new JLabel();
+		searchEngineVersion.setText("Search Engine Version 1.0 ");
+		searchEngineVersion.setBounds(560,533,205,25);
+		maint.add(searchEngineVersion);
+
+
+		//headers for the table
+		String[] columns = new String[] {
+				"File Name", "Status"
+		};
+
+		//create table with data
+		JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
+		JScrollPane sp = new JScrollPane( fileTable );
+
+		maint.getContentPane().setLayout( new BorderLayout() );
+		maint.getContentPane().add(heading,BorderLayout.PAGE_START);
+		maint.getContentPane().add(sp,BorderLayout.CENTER);
+
+		maint.setLocation( 375, 100 );
 		maint.setSize( 800,600 );
 		maint.setVisible(true); //making the window visible
-		
-		// listener for the Add File Button
-	    addFile.addActionListener(new ActionListener(){  
-	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickAddFile();             
-	        }
-	    });
 
-		// listener for the Reset Windows Button	    
-	    reset.addActionListener(new ActionListener(){  
-	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickResetWindows();             
-	        }
-	    });
-	    
-	    // listener for the Rebuild button
-	    rebuild.addActionListener(new ActionListener(){  
-	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickRebuildOutOfDate();             
-	        }
-	    });
-	    
-	    remove.addActionListener(new ActionListener(){  
-	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickRemoveSelectedFiles();             
-	        }
-	    });
+		// listener for the Add File Button
+		addFile.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				MaintenanceWindowButtons.clickAddFile();
+			}
+		});
+
+		// listener for the Reset Windows Button
+		reset.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				maint.setLocation( 375, 100 );
+
+			}
+		});
+
+		// listener for the Rebuild button
+		rebuild.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				MaintenanceWindowButtons.clickRebuildOutOfDate();
+			}
+		});
+
+		remove.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				MaintenanceWindowButtons.clickRemoveSelectedFiles();
+			}
+		});
 
 	}
 
