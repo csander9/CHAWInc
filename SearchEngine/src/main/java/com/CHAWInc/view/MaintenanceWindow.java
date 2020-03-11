@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
-import com.CHAWInc.view.SearchWindow;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -87,7 +87,7 @@ public class MaintenanceWindow {
         };
         
         //create table with data
-        JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
+        final JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
         JScrollPane sp = new JScrollPane( fileTable );
         
 		maint.getContentPane().setLayout( new BorderLayout() );
@@ -101,7 +101,21 @@ public class MaintenanceWindow {
 		// listener for the Add File Button
 	    addFile.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickAddFile();             
+	        	try {
+				//	MaintenanceWindowButtons.clickAddFile();
+	            	String[][] fileArray = MaintenanceWindowButtons.clickAddFile();
+	            	
+	            	for(int row = 0; row < fileArray.length; ++row) {
+	            		for (int col = 0; col < 2; ++col) {
+	            		 
+	            			fileTable.setValueAt( (Object)fileArray[row][col], row, col);
+	            		}
+	            	    
+	            	}
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}             
 	        }
 	    });
 
@@ -118,7 +132,14 @@ public class MaintenanceWindow {
 	    rebuild.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
 	        	try {
-					MaintenanceWindowButtons.clickRebuildOutOfDate();
+				//	MaintenanceWindowButtons.clickRebuildOutOfDate();
+	            	String[][] fileArray = MaintenanceWindowButtons.clickRebuildOutOfDate();
+	            	
+	            	for(int row = 0; row < fileArray.length; ++row) {
+	            		for (int col = 0; col < 2; ++col) {
+	            	        fileTable.setValueAt( (Object)fileArray[row][col], row,col);
+	            		}
+	            	}
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				}             

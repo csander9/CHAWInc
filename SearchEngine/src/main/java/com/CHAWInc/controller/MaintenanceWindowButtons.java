@@ -1,10 +1,14 @@
 package com.CHAWInc.controller;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import java.text.SimpleDateFormat;
@@ -15,14 +19,36 @@ import java.text.SimpleDateFormat;
 //to the index file
 public class MaintenanceWindowButtons {
 	
-	public static void clickAddFile() {
+	public static String[][] clickAddFile() throws IOException {
 	
-		//TODO open File window
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		
 		//Add to FIle Name list
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+		
+		int result = fileChooser.showOpenDialog(fileChooser);
+		
+		if (result == JFileChooser.APPROVE_OPTION) {
+		    File selectedFile = fileChooser.getSelectedFile();
+		    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+		    
+		    BufferedWriter writer = new BufferedWriter(
+	                  new FileWriter("c:/Users/Public/Documents/SearchEngineIndex.txt", true)  //Set true for append mode
+	                            );
+		    String currentDate = sdf.format(selectedFile.lastModified());
+		    String textToAppend = selectedFile.getAbsolutePath() + "," + currentDate;
+	        writer.newLine();   //Add new line
+	        writer.write(textToAppend);
+	        writer.close();
+		}
+		
+		String[][] files = tableFileData();
+		return files;
 		
 	}
 	
-//This method removes the select ed file form the index file.
+//This method removes the selected file form the index file.
 	public static void clickRemoveSelectedFiles() {
 		
 		//TODO display Yes/No/Cancel popup with
@@ -31,7 +57,7 @@ public class MaintenanceWindowButtons {
 	}
 	
 //This method rebuild the index file.
-	public static void clickRebuildOutOfDate() throws FileNotFoundException {
+	public static String[][] clickRebuildOutOfDate() throws FileNotFoundException {
 		
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     	
@@ -82,14 +108,20 @@ public class MaintenanceWindowButtons {
         
         System.setOut(originalOut);
 
-        Object[] options = {"OK"};
-        JOptionPane.showOptionDialog(null,
-                "Please Re-Open the Maintenance Window to refresh the list",
-                null, JOptionPane.PLAIN_MESSAGE,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                options,
-                options[0]);
+        //Object[] options = {"OK"};
+        //JOptionPane.showOptionDialog(null,
+         //       "Please Re-Open the Maintenance Window to refresh the list",
+         //       null, JOptionPane.PLAIN_MESSAGE,
+         //       JOptionPane.WARNING_MESSAGE,
+         //       null,
+         //       options,
+         //       options[0]);
+        
+        
+		String[][] files2 = tableFileData();
+
+		return files2;
+		
 	}
 
 //This method retrieves the file names from the index file
