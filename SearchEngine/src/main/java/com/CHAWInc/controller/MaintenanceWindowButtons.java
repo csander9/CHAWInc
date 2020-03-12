@@ -1,12 +1,5 @@
 package com.CHAWInc.controller;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
-import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
-import java.text.SimpleDateFormat
 //Assigned to Charles Sanders
 
 //This method adds the selected files from the hard disk
