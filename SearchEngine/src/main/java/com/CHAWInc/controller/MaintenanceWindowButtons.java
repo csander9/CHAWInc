@@ -1,17 +1,41 @@
 package com.CHAWInc.controller;
 
-//Assigned to Charles Sanders
+
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+
 
 //This method adds the selected files from the hard disk
 //to the index file
 public class MaintenanceWindowButtons {
 	
+	
+	public static void main(String [] args) {}
+	
+	
+	
+	
 	public static void clickAddFile() {
 	
-		//TODO open File window
-		//Add to FIle Name list
 		
-	}
+		JButton open = new JButton();
+	    JFileChooser fc = new JFileChooser();
+	    fc.setCurrentDirectory(new java.io.File("user.home"));
+	    fc.setDialogTitle("Add File");
+	    //fc.setFileSelectionMode(JFilechooser.DIRECTORIES_ONLY);
+	    if(fc.showOpenDialog(open) == JFileChooser.APPROVE_OPTION){
+
+	    }
+
+	    System.out.println(fc.getSelectedFile().getAbsolutePath());
+
+	    }
+		
+		
+		
+		
+		
+	
 	
 //This method removes the select ed file form the index file.
 	public static void clickRemoveSelectedFiles() {
