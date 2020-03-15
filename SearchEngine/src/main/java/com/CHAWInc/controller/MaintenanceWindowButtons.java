@@ -1,6 +1,7 @@
 package com.CHAWInc.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,11 +46,55 @@ public class MaintenanceWindowButtons {
 	}
 	
 //This method removes the selected file form the index file.
-	public static void clickRemoveSelectedFiles() {
+	public static String[][] clickRemoveSelectedFiles(String selection) throws IOException {
+	//	System.out.println(selection);
 		
-		//TODO display Yes/No/Cancel popup with
-		//text "Remove these files from the index?" 
-		// < FIle Name >
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+		
+		//Rebuild the out-of-date index
+        int i = -1;
+
+		//Retrieve file names from the index
+        File indexFile = new File("C:/Users/Public/Documents/SearchEngineIndex.txt");
+        	
+        String[] files = new String[20];
+        String[] outFiles = new String[20];
+        
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner( indexFile );
+	
+		int j = -1;
+		
+        while (sc.hasNextLine() ) {
+            i+=1;
+	        files[i] = sc.nextLine();
+	        
+	        String fileName = files[i].substring( 0, files[i].indexOf(","));	        
+	        File fileDate = new File(fileName);
+       
+	    	String currentDate = sdf.format(fileDate.lastModified());
+        
+	    	j+=1;
+	    	if ( fileName.equals(selection) )
+                j-=1;
+	    	else
+	    		outFiles[j] = fileName + "," + currentDate;
+	    	
+        }
+        
+	    PrintWriter writer = new PrintWriter(
+    		    new FileWriter ("c:/Users/Public/Documents/SearchEngineIndex.txt",false));
+		
+        for (int x=0; x <= j; ++x ) {
+        		writer.println(outFiles[x]);
+        }
+
+        writer.close();
+        
+		String[][] files2 = tableFileData();
+
+		return files2;
+
 	}
 	
 //This method rebuild the index file.

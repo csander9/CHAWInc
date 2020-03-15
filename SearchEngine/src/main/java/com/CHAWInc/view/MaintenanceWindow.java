@@ -14,6 +14,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import com.CHAWInc.controller.MaintenanceWindowButtons;
 
@@ -61,7 +63,7 @@ public class MaintenanceWindow {
 		
 		// Create the Remove Selected Files button for the maintenance window.
 		String removeString = "Remove Selected Files";
-		JButton remove = new JButton();
+		final JButton remove = new JButton();
 		remove.setText(removeString);
 		remove.setMnemonic(KeyEvent.VK_R);
 		remove.setActionCommand(removeString);
@@ -89,6 +91,10 @@ public class MaintenanceWindow {
         //create table with data
         final JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
         JScrollPane sp = new JScrollPane( fileTable );
+ //   	JLabel numFilesIndexed2 = new JLabel();
+//    	numFilesIndexed2.setText("Number of Files Indexed: " + fileTable.length);
+ //   	numFilesIndexed2.setBounds(300,533,200,25);
+ //   	maint.add(numFilesIndexed2);
         
 		maint.getContentPane().setLayout( new BorderLayout() );
         maint.getContentPane().add(heading,BorderLayout.PAGE_START);
@@ -110,12 +116,18 @@ public class MaintenanceWindow {
 	            		 
 	            			fileTable.setValueAt( (Object)fileArray[row][col], row, col);
 	            		}
+	            		
+	    	    	JLabel numFilesIndexed2 = new JLabel();
+	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
+	    	    	numFilesIndexed2.setBounds(300,533,200,25);
+	    	    	maint.add(numFilesIndexed2);
 	            	    
 	            	}
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}             
+				}
+
 	        }
 	    });
 
@@ -137,8 +149,14 @@ public class MaintenanceWindow {
 	            	for(int row = 0; row < fileArray.length; ++row) {
 	            		for (int col = 0; col < 2; ++col) {
 	            	        fileTable.setValueAt( (Object)fileArray[row][col], row,col);
-	            		}
+             		    }
 	            	}
+	            	
+	    	    	JLabel numFilesIndexed2 = new JLabel();
+	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
+	    	    	numFilesIndexed2.setBounds(300,533,200,25);
+	    	    	maint.add(numFilesIndexed2);
+	    	    	
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {
@@ -149,12 +167,45 @@ public class MaintenanceWindow {
 	        }
 	        
 	    });
-	    
-	    remove.addActionListener(new ActionListener(){  
-	        public void actionPerformed(ActionEvent e){
-	        	MaintenanceWindowButtons.clickRemoveSelectedFiles();             
-	        }
+
+	    fileTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+	        public void valueChanged(ListSelectionEvent e) {
+	        	
+	            fileTable.setRowSelectionAllowed(true);
+	            
+	            final int sel = fileTable.getSelectedRow();
+	            final String sel1 = (String) fileTable.getValueAt(sel, 0);
+	            
+	    	    remove.addActionListener(new ActionListener(){  
+	    	        public void actionPerformed(ActionEvent e){
+	    	        	
+	    	        	String selection = sel1;
+	    	        	try {
+	    	        		String[][] fileArray = MaintenanceWindowButtons.clickRemoveSelectedFiles(selection);
+	    	        		
+	    	            	for(int row = 0; row < fileArray.length; ++row) {
+	    	            		for (int col = 0; col < 2; ++col) {
+	    	            	        fileTable.setValueAt( (Object)fileArray[row][col], row,col);
+	                 		    }
+	    	            	}
+	    	            	
+	    	    	    	JLabel numFilesIndexed2 = new JLabel();
+	    	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
+	    	    	    	numFilesIndexed2.setBounds(300,533,200,25);
+	    	    	    	maint.add(numFilesIndexed2);
+	    	    	    	
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+          
+	    	        }
+	    	    });        
+	            
+	        }    
 	    });
+	    
+
 
 	}
 
