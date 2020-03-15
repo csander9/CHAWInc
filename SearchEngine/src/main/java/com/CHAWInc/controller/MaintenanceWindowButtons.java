@@ -1,16 +1,12 @@
 package com.CHAWInc.controller;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
 import java.text.SimpleDateFormat;
 
 //Assigned to Charles Sanders
@@ -31,15 +27,15 @@ public class MaintenanceWindowButtons {
 		
 		if (result == JFileChooser.APPROVE_OPTION) {
 		    File selectedFile = fileChooser.getSelectedFile();
-		    System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+		    //System.out.println("Selected file: " + selectedFile.getAbsolutePath());
 		    
-		    BufferedWriter writer = new BufferedWriter(
-	                  new FileWriter("c:/Users/Public/Documents/SearchEngineIndex.txt", true)  //Set true for append mode
-	                            );
+		    PrintWriter writer = new PrintWriter(
+		    		    new FileWriter ("c:/Users/Public/Documents/SearchEngineIndex.txt",true));
+		    
 		    String currentDate = sdf.format(selectedFile.lastModified());
 		    String textToAppend = selectedFile.getAbsolutePath() + "," + currentDate;
-	        writer.newLine();   //Add new line
-	        writer.write(textToAppend);
+		    
+	        writer.println(textToAppend);
 	        writer.close();
 		}
 		
@@ -57,7 +53,7 @@ public class MaintenanceWindowButtons {
 	}
 	
 //This method rebuild the index file.
-	public static String[][] clickRebuildOutOfDate() throws FileNotFoundException {
+	public static String[][] clickRebuildOutOfDate() throws IOException {
 		
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     	
@@ -92,31 +88,18 @@ public class MaintenanceWindowButtons {
 	    	
         }
         
-        // Save original out stream.
-        PrintStream originalOut = System.out;
-        
         // Create a new file output stream.
-        PrintStream fileOut = new PrintStream("C:/Users/Public/Documents/SearchEngineIndex.txt");
+        PrintWriter fileOut = new PrintWriter("C:/Users/Public/Documents/SearchEngineIndex.txt");
 		
-        // Redirect standard out to file.
-        System.setOut(fileOut);
-        
         int x = 0;
         for ( x=0; x <= j; ++x ) {
-            System.out.println(outFiles[x]);
+        	if (x==0)
+        		fileOut.print(outFiles[x]);
+        	else
+        		fileOut.println(outFiles[x]);
         }
-        
-        System.setOut(originalOut);
 
-        //Object[] options = {"OK"};
-        //JOptionPane.showOptionDialog(null,
-         //       "Please Re-Open the Maintenance Window to refresh the list",
-         //       null, JOptionPane.PLAIN_MESSAGE,
-         //       JOptionPane.WARNING_MESSAGE,
-         //       null,
-         //       options,
-         //       options[0]);
-        
+        fileOut.close();
         
 		String[][] files2 = tableFileData();
 
@@ -127,7 +110,7 @@ public class MaintenanceWindowButtons {
 //This method retrieves the file names from the index file
 // to display in the maintenance window.  It checks to see if the files are
 //out of date and	
-	public static String[][] tableFileData() throws FileNotFoundException {
+	public static String[][] tableFileData() throws IOException {
 
         int i = -1;
         
@@ -141,18 +124,8 @@ public class MaintenanceWindowButtons {
 
         String indexFileDate = sdf.format(indexFile.lastModified());
     	if (indexFileDate.equals( "12/31/1969 19:00:00" )) {
-            // Save original out stream.
-            PrintStream originalOut = System.out;
-            
-            // Create a new file output stream.
-            PrintStream fileOut = new PrintStream("C:/Users/Public/Documents/SearchEngineIndex.txt");
     		
-            // Redirect standard out to file.
-            System.setOut(fileOut);
-    		
-    		System.out.println("");
-    		
-    		System.setOut(originalOut);
+    		indexFile.createNewFile();
     	}        
         
         

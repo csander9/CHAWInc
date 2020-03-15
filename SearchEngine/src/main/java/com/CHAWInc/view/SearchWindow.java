@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -155,7 +156,8 @@ public class SearchWindow extends JFrame {
             public void actionPerformed(ActionEvent e){
                 try {
 					new MaintenanceWindow();
-				} catch (FileNotFoundException e1) {
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
           }

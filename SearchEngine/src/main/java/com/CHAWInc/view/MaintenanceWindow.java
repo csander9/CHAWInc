@@ -19,7 +19,7 @@ import com.CHAWInc.controller.MaintenanceWindowButtons;
 
 public class MaintenanceWindow {
 
-	 MaintenanceWindow() throws FileNotFoundException {
+	 MaintenanceWindow() throws IOException {
 		 
 		// Create the JFrame and settings its properties.
 		final JFrame maint = new JFrame();
@@ -141,6 +141,9 @@ public class MaintenanceWindow {
 	            		}
 	            	}
 				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}             
 	        }
