@@ -88,18 +88,14 @@ public class MaintenanceWindowButtons {
 	    	
         }
         
-        // Create a new file output stream.
-        PrintWriter fileOut = new PrintWriter("C:/Users/Public/Documents/SearchEngineIndex.txt");
+	    PrintWriter writer = new PrintWriter(
+    		    new FileWriter ("c:/Users/Public/Documents/SearchEngineIndex.txt",false));
 		
-        int x = 0;
-        for ( x=0; x <= j; ++x ) {
-        	if (x==0)
-        		fileOut.print(outFiles[x]);
-        	else
-        		fileOut.println(outFiles[x]);
+        for (int x=0; x <= j; ++x ) {
+        		writer.println(outFiles[x]);
         }
 
-        fileOut.close();
+        writer.close();
         
 		String[][] files2 = tableFileData();
 

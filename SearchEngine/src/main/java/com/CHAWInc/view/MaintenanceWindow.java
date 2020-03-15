@@ -132,7 +132,13 @@ public class MaintenanceWindow {
 	    rebuild.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
 	        	try {
-				//	MaintenanceWindowButtons.clickRebuildOutOfDate();
+				//	try {
+				//		MaintenanceWindowButtons.clickRebuildOutOfDate();
+				//	} catch (IOException e1) {
+				//		// TODO Auto-generated catch block
+				//		e1.printStackTrace();
+				//	}
+	        		
 	            	String[][] fileArray = MaintenanceWindowButtons.clickRebuildOutOfDate();
 	            	
 	            	for(int row = 0; row < fileArray.length; ++row) {
@@ -145,8 +151,10 @@ public class MaintenanceWindow {
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
-				}             
+				}
+				             
 	        }
+	        
 	    });
 	    
 	    remove.addActionListener(new ActionListener(){  
