@@ -1,8 +1,8 @@
 package com.CHAWInc.model;
 
 import java.io.IOException;
+import com.CHAWInc.view.SearchWindow;
 
-import com.CHAWInc.view.*;
 
 /**
  * Search Engine Program Project #3.
@@ -25,6 +25,6 @@ public class SearchEngine {
 				}
             }
         });
-        
+               
     }
 }

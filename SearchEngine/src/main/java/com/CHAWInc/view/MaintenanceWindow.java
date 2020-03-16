@@ -136,7 +136,7 @@ public class MaintenanceWindow {
 	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
 	                
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 
@@ -176,7 +176,7 @@ public class MaintenanceWindow {
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					
 					e1.printStackTrace();
 				}
 				             
@@ -216,7 +216,7 @@ public class MaintenanceWindow {
 	    	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
 	    	    	    	
 						} catch (IOException e1) {
-							// TODO Auto-generated catch block
+							
 							e1.printStackTrace();
 						}
           

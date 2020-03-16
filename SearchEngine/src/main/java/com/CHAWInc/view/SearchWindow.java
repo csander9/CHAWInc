@@ -15,6 +15,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.WatchEvent;
+import java.nio.file.WatchKey;
+import java.nio.file.WatchService;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
+import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
+import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
+import java.util.List;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -133,7 +144,7 @@ public class SearchWindow extends JFrame {
         }
     	
         //Number of Files Indexed
-        JLabel numFilesIndexed = new JLabel();
+        final JLabel numFilesIndexed = new JLabel();
         numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
         numFilesIndexed.setText("Number of Files Indexed: " + rowCount);
         numFilesIndexed.setBounds(230,709,200,50);
@@ -150,7 +161,7 @@ public class SearchWindow extends JFrame {
         String[][] searchFiles = new String[20][1];
         
 	    String colHeading[] = {"Search Results"};
-	    //final JTable searchTable = new JTable();
+
         final JTable searchTable = new JTable(searchFiles, colHeading);
 
         JScrollPane sp = new JScrollPane( searchTable );
@@ -159,7 +170,7 @@ public class SearchWindow extends JFrame {
     	f.getContentPane().add(sp,BorderLayout.SOUTH);
     			
         f.setVisible(true);
-
+        
         //ActionListener Maintenance button
         maintenanceButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -192,8 +203,8 @@ public class SearchWindow extends JFrame {
 
             }
         });
-        
-        
+     
 
-  }
+    }
+    
 }
