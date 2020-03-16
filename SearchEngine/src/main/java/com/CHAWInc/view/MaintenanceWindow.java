@@ -69,12 +69,6 @@ public class MaintenanceWindow {
 		remove.setActionCommand(removeString);
 		remove.setBounds( 550, 500, 175, 25 );
 		maint.add(remove);
-		
-	    //Number of Files Indexed
-	    JLabel numFilesIndexed2 = new JLabel();
-	    numFilesIndexed2.setText("Number of Files Indexed: 6 ");
-	    numFilesIndexed2.setBounds(300,533,200,25);
-	    maint.add(numFilesIndexed2);
 	    
 	    //Search Engine Version
 	    JLabel searchEngineVersion = new JLabel();
@@ -89,12 +83,21 @@ public class MaintenanceWindow {
         };
         
         //create table with data
-        final JTable fileTable = new JTable( MaintenanceWindowButtons.tableFileData(), columns );
+        String[][] tableFileData = MaintenanceWindowButtons.tableFileData();
+
+        int rowCount = 0;
+        for (int i=0; i < 20; ++i) {
+            if (tableFileData[i][0] != null )
+            	++rowCount;
+        }
+        
+        final JTable fileTable = new JTable( tableFileData, columns );
         JScrollPane sp = new JScrollPane( fileTable );
- //   	JLabel numFilesIndexed2 = new JLabel();
-//    	numFilesIndexed2.setText("Number of Files Indexed: " + fileTable.length);
- //   	numFilesIndexed2.setBounds(300,533,200,25);
- //   	maint.add(numFilesIndexed2);
+       
+    	final JLabel numFilesIndexed2 = new JLabel();
+    	numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
+    	numFilesIndexed2.setBounds(300,533,200,25);
+    	maint.add(numFilesIndexed2);
         
 		maint.getContentPane().setLayout( new BorderLayout() );
         maint.getContentPane().add(heading,BorderLayout.PAGE_START);
@@ -103,6 +106,11 @@ public class MaintenanceWindow {
         maint.setLocation( 375, 100 );
 		maint.setSize( 800,600 );
 		maint.setVisible(true); //making the window visible
+		maint.setResizable(true);
+    	
+       // numFilesIndexed2.setText("Number of Files Indexed:::: " + rowCount);
+    //	maint.add(numFilesIndexed2);
+    //	maint.setVisible(true);
 		
 		// listener for the Add File Button
 	    addFile.addActionListener(new ActionListener(){  
@@ -115,14 +123,18 @@ public class MaintenanceWindow {
 	            		for (int col = 0; col < 2; ++col) {
 	            		 
 	            			fileTable.setValueAt( (Object)fileArray[row][col], row, col);
-	            		}
-	            		
-	    	    	JLabel numFilesIndexed2 = new JLabel();
-	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
-	    	    	numFilesIndexed2.setBounds(300,533,200,25);
-	    	    	maint.add(numFilesIndexed2);
-	            	    
+	            		}	
 	            	}
+	            	
+	                int rowCount = 0;
+	                for (int i=0; i < 20; ++i) {
+	                    if (fileArray[i][0] != null )
+	                    	++rowCount;
+	                }
+	            	
+	                //Number of Files Indexed
+	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
+	                
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -140,7 +152,7 @@ public class MaintenanceWindow {
 	        }
 	    });
 	    
-	    // listener for the Rebuild button
+	    // listener for the Rebuild index button
 	    rebuild.addActionListener(new ActionListener(){  
 	        public void actionPerformed(ActionEvent e){
 	        	try {
@@ -152,10 +164,14 @@ public class MaintenanceWindow {
              		    }
 	            	}
 	            	
-	    	    	JLabel numFilesIndexed2 = new JLabel();
-	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
-	    	    	numFilesIndexed2.setBounds(300,533,200,25);
-	    	    	maint.add(numFilesIndexed2);
+	                int rowCount = 0;
+	                for (int i=0; i < 20; ++i) {
+	                    if (fileArray[i][0] != null )
+	                    	++rowCount;
+	                }
+	            	
+	                //Number of Files Indexed
+	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
 	    	    	
 				} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
@@ -168,6 +184,7 @@ public class MaintenanceWindow {
 	        
 	    });
 
+	    //Listeners for the Select File and the Remove Selected File
 	    fileTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 	        public void valueChanged(ListSelectionEvent e) {
 	        	
@@ -189,10 +206,14 @@ public class MaintenanceWindow {
 	                 		    }
 	    	            	}
 	    	            	
-	    	    	    	JLabel numFilesIndexed2 = new JLabel();
-	    	    	    	numFilesIndexed2.setText("Number of Files Indexed: " + fileArray.length);
-	    	    	    	numFilesIndexed2.setBounds(300,533,200,25);
-	    	    	    	maint.add(numFilesIndexed2);
+	    	                int rowCount = 0;
+	    	                for (int i=0; i < 20; ++i) {
+	    	                    if (fileArray[i][0] != null )
+	    	                    	++rowCount;
+	    	                }
+	    	            	
+	    	                //Number of Files Indexed
+	    	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
 	    	    	    	
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block

@@ -8,12 +8,12 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+import com.CHAWInc.controller.MaintenanceWindowButtons;
 import com.CHAWInc.controller.SearchWindowButtons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.JTextField;
@@ -40,7 +40,7 @@ public class SearchWindow extends JFrame {
     static String aboutString = "About";
     static String searchString = "Search";
 
-    public SearchWindow() {
+    public SearchWindow() throws IOException {
         final JFrame f = new JFrame("Search Engine");
 
         //GUI Size
@@ -123,10 +123,19 @@ public class SearchWindow extends JFrame {
         maintenanceButton.setBounds(50,718, 110, 30);
         f.add(maintenanceButton);
 
+        //Get index file row count
+        String[][] tableFileData = MaintenanceWindowButtons.tableFileData();
+
+        int rowCount = 0;
+        for (int i=0; i < 20; ++i) {
+            if (tableFileData[i][0] != null )
+            	++rowCount;
+        }
+    	
         //Number of Files Indexed
         JLabel numFilesIndexed = new JLabel();
         numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
-        numFilesIndexed.setText("Number of Files Indexed: 0 ");
+        numFilesIndexed.setText("Number of Files Indexed: " + rowCount);
         numFilesIndexed.setBounds(230,709,200,50);
         f.add(numFilesIndexed);
 
@@ -183,6 +192,8 @@ public class SearchWindow extends JFrame {
 
             }
         });
+        
+        
 
   }
 }
