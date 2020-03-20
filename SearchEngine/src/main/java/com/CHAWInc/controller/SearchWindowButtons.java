@@ -66,8 +66,6 @@ public class SearchWindowButtons {
                 WatchEvent<Path> ev = (WatchEvent<Path>) event;
                 Path fileName = ev.context();
      
-                System.out.println(kind.name() + ": " + fileName);
-     
                 if (kind == OVERFLOW) {
                     continue;
      
