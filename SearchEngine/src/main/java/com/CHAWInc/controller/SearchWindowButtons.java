@@ -1,4 +1,6 @@
 package com.CHAWInc.controller;
+
+import com.CHAWInc.controller.MaintenanceWindowButtons;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
 
@@ -40,21 +42,19 @@ public class SearchWindowButtons {
                 options[0]);
     }
     
-    public static Boolean indexFileWatcher() throws IOException {
-        
+    public static int indexFileWatcher() throws IOException {
+    	
         WatchService watcher = FileSystems.getDefault().newWatchService();
         Path dir = Paths.get("C:/Users/Public/Documents");
         dir.register(watcher, ENTRY_MODIFY);
-    
-        Boolean flag = false;
-        
+        		
         while (true) {
-            WatchKey key;
+            WatchKey key = null;
             try {
                 // wait for a key to be available
                 key = watcher.take();
             } catch (InterruptedException ex) {
-                return false;
+              
             }
      
             for (WatchEvent<?> event : key.pollEvents()) {
@@ -73,7 +73,7 @@ public class SearchWindowButtons {
      
                 } else if (kind == ENTRY_MODIFY
                        && fileName.toString().equals("SearchEngineIndex.txt")) {
-                       flag = true;
+                	return(rowCounter());
                 }
             }
      
@@ -83,8 +83,26 @@ public class SearchWindowButtons {
                 break;
             }
         }
-        return flag;
+        return(rowCounter());
     }
+    
+    public static int rowCounter() {
+    
+    //Get index file row count
+        String[][] tableFileData = null;
+		try {
+			tableFileData = MaintenanceWindowButtons.tableFileData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+        int rowCount = 0;
+        for (int i=0; i < 20; ++i) {
+            if (tableFileData[i][0] != null )
+        	    ++rowCount;
+        }
+		return rowCount;
+    }
 }
 

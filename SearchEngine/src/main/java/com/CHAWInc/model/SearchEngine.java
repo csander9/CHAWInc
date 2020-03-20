@@ -18,7 +18,8 @@ public class SearchEngine {
         java.awt.EventQueue.invokeLater(new Runnable() {
            public void run() {
                 try {
-					new SearchWindow();
+					 new SearchWindow();
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

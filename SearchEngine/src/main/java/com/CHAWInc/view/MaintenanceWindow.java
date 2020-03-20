@@ -107,10 +107,6 @@ public class MaintenanceWindow {
 		maint.setSize( 800,600 );
 		maint.setVisible(true); //making the window visible
 		maint.setResizable(true);
-    	
-       // numFilesIndexed2.setText("Number of Files Indexed:::: " + rowCount);
-    //	maint.add(numFilesIndexed2);
-    //	maint.setVisible(true);
 		
 		// listener for the Add File Button
 	    addFile.addActionListener(new ActionListener(){  
@@ -134,6 +130,8 @@ public class MaintenanceWindow {
 	            	
 	                //Number of Files Indexed
 	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
+	                
+	                //new SearchWindow();
 	                
 				} catch (IOException e1) {
 					
@@ -223,11 +221,9 @@ public class MaintenanceWindow {
 	    	        }
 	    	    });        
 	            
-	        }    
+	        }
 	    });
-	    
-
-
+		
 	}
 
 }

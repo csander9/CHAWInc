@@ -8,25 +8,12 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import com.CHAWInc.controller.MaintenanceWindowButtons;
 import com.CHAWInc.controller.SearchWindowButtons;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.WatchEvent;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_DELETE;
-import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
-import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
-import java.util.List;
-
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.BorderLayout;
@@ -50,7 +37,7 @@ public class SearchWindow extends JFrame {
     static String maintenanceString = "Maintenance";
     static String aboutString = "About";
     static String searchString = "Search";
-
+    
     public SearchWindow() throws IOException {
         final JFrame f = new JFrame("Search Engine");
 
@@ -133,20 +120,11 @@ public class SearchWindow extends JFrame {
         maintenanceButton.setActionCommand(maintenanceString);
         maintenanceButton.setBounds(50,718, 110, 30);
         f.add(maintenanceButton);
-
-        //Get index file row count
-        String[][] tableFileData = MaintenanceWindowButtons.tableFileData();
-
-        int rowCount = 0;
-        for (int i=0; i < 20; ++i) {
-            if (tableFileData[i][0] != null )
-            	++rowCount;
-        }
-    	
+  	
         //Number of Files Indexed
         final JLabel numFilesIndexed = new JLabel();
         numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
-        numFilesIndexed.setText("Number of Files Indexed: " + rowCount);
+        numFilesIndexed.setText("Number of Files Indexed: " + SearchWindowButtons.rowCounter());
         numFilesIndexed.setBounds(230,709,200,50);
         f.add(numFilesIndexed);
 
@@ -171,16 +149,25 @@ public class SearchWindow extends JFrame {
     			
         f.setVisible(true);
         
+        //Number of Files Indexed
+        //final JLabel numFilesIndexed = new JLabel();
+        //numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
+        //numFilesIndexed.setText("Number of Files Indexed: " + SearchWindowButtons.indexFileWatcher());
+       // numFilesIndexed.setBounds(230,709,200,50);
+        //f.add(numFilesIndexed);
+        
         //ActionListener Maintenance button
         maintenanceButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 try {
 					new MaintenanceWindow();
+					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-          }
+                
+            }
         });
 
         //ActionListener About button
@@ -203,7 +190,6 @@ public class SearchWindow extends JFrame {
 
             }
         });
-     
 
     }
     
