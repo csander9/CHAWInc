@@ -13,8 +13,7 @@ public class MaintenanceWindowButtons {
 	public static void main(String [] args) {}
 	
 	
-	
-	
+
 	public static void clickAddFile() {
 	
 		
@@ -22,7 +21,7 @@ public class MaintenanceWindowButtons {
 	    JFileChooser fc = new JFileChooser();
 	    fc.setCurrentDirectory(new java.io.File("user.home"));
 	    fc.setDialogTitle("Add File");
-	    //fc.setFileSelectionMode(JFilechooser.DIRECTORIES_ONLY);
+	    fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 	    if(fc.showOpenDialog(open) == JFileChooser.APPROVE_OPTION){
 
 	    }
@@ -30,12 +29,7 @@ public class MaintenanceWindowButtons {
 	    System.out.println(fc.getSelectedFile().getAbsolutePath());
 
 	    }
-		
-		
-		
-		
-		
-	
+
 	
 //This method removes the select ed file form the index file.
 	public static void clickRemoveSelectedFiles() {
