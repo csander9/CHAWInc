@@ -131,7 +131,6 @@ public class MaintenanceWindow {
 	                //Number of Files Indexed
 	                numFilesIndexed2.setText("Number of Files Indexed: " + rowCount);
 	                
-	                //new SearchWindow();
 	                
 				} catch (IOException e1) {
 					

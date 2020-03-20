@@ -38,8 +38,11 @@ public class SearchWindow extends JFrame {
     static String aboutString = "About";
     static String searchString = "Search";
     
+    final JFrame f = new JFrame("Search Engine");
+    final JLabel numFilesIndexed = new JLabel();
+    
     public SearchWindow() throws IOException {
-        final JFrame f = new JFrame("Search Engine");
+        
 
         //GUI Size
         f.setLocation( 450, 25 );
@@ -122,7 +125,6 @@ public class SearchWindow extends JFrame {
         f.add(maintenanceButton);
   	
         //Number of Files Indexed
-        final JLabel numFilesIndexed = new JLabel();
         numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
         numFilesIndexed.setText("Number of Files Indexed: " + SearchWindowButtons.rowCounter());
         numFilesIndexed.setBounds(230,709,200,50);
