@@ -1,6 +1,7 @@
 package com.CHAWInc.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
@@ -25,9 +26,11 @@ public class MaintenanceWindow {
 		//bye.addActionListener(goodbye());
 		}
 
-	public static void goodbye(ActionEvent e) {
+	private void goodbye(ActionEvent e) {
 		// trying to close the window only when clicked
-	   //  JFrame.dispose();
+		// dispatchEvent(new WindowEvent(maint, WindowEvent.WINDOW_CLOSING));
+		// trying to figure out how to make a call for closing the window without closing the program.
+
 
 	}
 
