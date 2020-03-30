@@ -38,7 +38,7 @@ public class SearchWindow extends JFrame {
     static String aboutString = "About";
     static String searchString = "Search";
     
-    final JFrame f = new JFrame("Search Engine");
+    final static JFrame f = new JFrame("Search Engine");
     final JLabel numFilesIndexed = new JLabel();
     
     public SearchWindow() throws IOException {

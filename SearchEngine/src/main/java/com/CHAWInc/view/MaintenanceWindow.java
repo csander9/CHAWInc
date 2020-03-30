@@ -145,7 +145,7 @@ public class MaintenanceWindow {
 	        public void actionPerformed(ActionEvent e){
 	        	
 	        	maint.setLocation( 375, 100 );
-	        //	f.setLocation( 450, 25 );
+	        	SearchWindow.f.setLocation( 450, 25 );
 	        }
 	    });
 	    
