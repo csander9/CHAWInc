@@ -5,7 +5,7 @@ import com.CHAWInc.view.SearchWindow;
 
 
 /**
- * Search Engine Program Project #3.
+ * Search Engine Program Project #4.
  * 
  * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
  *    
