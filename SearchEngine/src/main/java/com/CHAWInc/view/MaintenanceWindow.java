@@ -1,5 +1,5 @@
 /* This is the GUI program for the maintenance window
- * 
+ * Search Engine Program Project #4.
  * @authors Anthony Baudoin, Charles Sanders, Hung Truong
  */
 
