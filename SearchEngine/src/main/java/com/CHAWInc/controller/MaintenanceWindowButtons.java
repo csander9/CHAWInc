@@ -8,6 +8,12 @@ import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 import java.text.SimpleDateFormat;
+/**
+ * Search Engine Program Project #4.
+ * 
+ * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
+ *    
+ */
 
 //Assigned to Charles Sanders
 
