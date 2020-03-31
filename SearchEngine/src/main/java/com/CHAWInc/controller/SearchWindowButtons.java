@@ -14,6 +14,13 @@ import java.nio.file.WatchService;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Search Engine Program Project #4.
+ * 
+ * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
+ *    
+ */
+
 
 public class SearchWindowButtons {
 	
