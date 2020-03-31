@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import com.CHAWInc.controller.SearchWindowButtons;
 
-
 /**
- * Search Engine Program Project #3.
+ * Search Engine Program Project #4.
  * 
  * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
  *    
  */
+
 public class SearchEngine {
 	
     public static void main(String args[]) throws IOException {
