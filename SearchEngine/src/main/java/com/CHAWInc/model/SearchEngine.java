@@ -1,6 +1,8 @@
 package com.CHAWInc.model;
 
-import com.CHAWInc.view.*;
+import java.io.IOException;
+import com.CHAWInc.view.SearchWindow;
+
 
 /**
  * Search Engine Program Project #3.
@@ -15,9 +17,15 @@ public class SearchEngine {
         //Create and display the main Search Engine window 
         java.awt.EventQueue.invokeLater(new Runnable() {
            public void run() {
-                new SearchWindow();
+                try {
+					 new SearchWindow();
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
-        
+               
     }
 }
