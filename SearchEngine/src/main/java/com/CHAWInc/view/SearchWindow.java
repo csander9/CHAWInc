@@ -19,6 +19,13 @@ import java.awt.Font;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
+/**
+ * Search Engine Program Project #4.
+ * 
+ * @authors Charles Sanders, Hung Truong, Walter Goes, Anthony Baudoin
+ *    
+ */
+
 public class SearchWindow extends JFrame {
 
   /**
