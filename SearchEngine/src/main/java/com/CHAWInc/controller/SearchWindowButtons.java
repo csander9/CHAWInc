@@ -24,14 +24,54 @@ import javax.swing.JOptionPane;
 
 public class SearchWindowButtons {
 	
-    public static String[][] onClickSearchButton() {
+    public static String[][] searchButtonAllRadioButton(String searchText) throws IOException {
         // add code to search with radio button selection
         //              and return search results to main window
         // display_Search_Results();
     	
+    	//System.out.println(searchText);
+    	
+		String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+    	
+    	
+		
+		
+		
     	String[][] searchFiles = {
-    			{"C:/Temp/word-doc.docx"},
-    			{"C:/Temp/excel-doc1.xlsx"}
+    			{"C:/Temp/word-doc-all.docx"},
+    			{"C:/Temp/excel-doc1-all.xlsx"}
+    	};
+            
+        return searchFiles;
+    }
+    
+    public static String[][] searchButtonAnyRadioButton(String searchText) throws IOException {
+        // add code to search with radio button selection
+        //              and return search results to main window
+        // display_Search_Results();
+    	
+    	
+    	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+    	
+    	String[][] searchFiles = {
+    			{"C:/Temp/word-doc-any.docx"},
+    			{"C:/Temp/excel-doc1-any.xlsx"}
+    	};
+            
+        return searchFiles;
+    }
+    
+    public static String[][] searchButtonExactRadioButton(String searchText) throws IOException {
+        // add code to search with radio button selection
+        //              and return search results to main window
+        // display_Search_Results();
+    	
+    	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+    	
+    	
+    	String[][] searchFiles = {
+    			{"C:/Temp/word-doc-exact.docx"},
+    			{"C:/Temp/excel-doc1-exact.xlsx"}
     	};
             
         return searchFiles;

@@ -73,7 +73,7 @@ public class SearchWindow extends JFrame {
         topLabel.setBounds(45,30,115,50);
         f.add(topLabel);
 
-        JTextField searchTextField = new JTextField();
+        final JTextField searchTextField = new JTextField();
         searchTextField.setBounds(150,43,300,25);
         f.add(searchTextField);
 
@@ -87,9 +87,9 @@ public class SearchWindow extends JFrame {
 
         //Initialize Radio buttons objects
         radioGroup = new ButtonGroup();
-        JRadioButton allRadioButton = new JRadioButton();
-        JRadioButton anyRadioButton = new JRadioButton();
-        JRadioButton exactRadioButton = new JRadioButton();
+        final JRadioButton allRadioButton = new JRadioButton();
+        final JRadioButton anyRadioButton = new JRadioButton();
+        final JRadioButton exactRadioButton = new JRadioButton();
 
         //Set Radio Buttons text with Mnemonic and ActionCommand
         allRadioButton.setText(allString);
@@ -158,13 +158,6 @@ public class SearchWindow extends JFrame {
     			
         f.setVisible(true);
         
-        //Number of Files Indexed
-        //final JLabel numFilesIndexed = new JLabel();
-        //numFilesIndexed.setHorizontalAlignment(JLabel.CENTER);
-        //numFilesIndexed.setText("Number of Files Indexed: " + SearchWindowButtons.indexFileWatcher());
-       // numFilesIndexed.setBounds(230,709,200,50);
-        //f.add(numFilesIndexed);
-        
         //ActionListener Maintenance button
         maintenanceButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
@@ -182,20 +175,59 @@ public class SearchWindow extends JFrame {
         //ActionListener About button
         aboutButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
+            	
             	SearchWindowButtons.onClickAboutButton();   
             }
         });
-
+        
+        
+        
         //ActionListener Search button
         searchButton.addActionListener( new ActionListener(){
             public void actionPerformed(ActionEvent e){
+            	
+           	    if (allRadioButton.isSelected()) {
 
-            	String[][] fileArray = SearchWindowButtons.onClickSearchButton();
-            	
-            	for(int row = 0; row < fileArray.length; ++row) {                   
-            	    searchTable.setValueAt( (Object)fileArray[row][0], row, 0);
-            	}
-            	
+                    String[][] fileArray = null;
+					try {
+						fileArray = SearchWindowButtons.searchButtonAllRadioButton( searchTextField.getText() );
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                	
+                    for(int row = 0; row < fileArray.length; ++row) {                   
+                        searchTable.setValueAt( (Object)fileArray[row][0], row, 0);
+                    }
+           	    }	
+               
+           	    if (anyRadioButton.isSelected()) {
+                    String[][] fileArray = null;
+					try {
+						fileArray = SearchWindowButtons.searchButtonAnyRadioButton( searchTextField.getText() );
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                	
+                    for(int row = 0; row < fileArray.length; ++row) {                   
+                        searchTable.setValueAt( (Object)fileArray[row][0], row, 0);
+                    }
+           	    }
+                
+           	    if (exactRadioButton.isSelected()) {
+                    String[][] fileArray = null;
+					try {
+						fileArray = SearchWindowButtons.searchButtonExactRadioButton( searchTextField.getText() );
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+                	
+                    for(int row = 0; row < fileArray.length; ++row) {                   
+                        searchTable.setValueAt( (Object)fileArray[row][0], row, 0);
+                    }
+           	    }           	
 
             }
         });
