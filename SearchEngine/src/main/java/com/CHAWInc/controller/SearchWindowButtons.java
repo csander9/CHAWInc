@@ -31,40 +31,60 @@ public class SearchWindowButtons {
 	
     public static String[][] searchButtonAllRadioButton(String searchText) throws IOException {
     	
+    	String[] anySearchText = searchText.split(" ");
+    	
     	//get list of files from the index file
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
         
     	String[][] searchFiles = new String[20][2];
     	
-    	int row = 0;
-    	
+    	//int row = 0;
+    	int rowOut=0;
     	//loop through the files and search each file for a pattern match
-    	while ( indexFiles[row][0] != null ) {
-	        
-    		File searchIndexFile = new File(indexFiles[row][0]);
+    	
+    	int numWords = anySearchText.length;
+    	
+    	//int anyRow = 0;
+    	for (int anyRow = 0; anyRow < anySearchText.length; anyRow++){
     		
-    		Scanner sc = new Scanner( searchIndexFile );
+        	int row = 0;
         	
-	        while (sc.hasNextLine() ) {
- 
+    	    while ( indexFiles[row][0] != null ) {
+	        
+    		    File searchIndexFile = new File(indexFiles[row][0]);
+    		
+    		    Scanner sc = new Scanner( searchIndexFile );
+        	
+	            while (sc.hasNextLine() ) {
 	        	
-			    String inp = sc.nextLine();      
+			        String inp = sc.nextLine();      
         
-        	    Pattern pattern = Pattern.compile(searchText);
-        	    Matcher matcher = pattern.matcher(inp);
-        	    if (matcher.find()) {
-        	        searchFiles[row][0] = indexFiles[row][0]; 
-        		}
-    	    }
-	        ++row;
+        	        Pattern pattern = Pattern.compile(anySearchText[anyRow]);
+        	        Matcher matcher = pattern.matcher(inp);
+        	        
+        	        if ( matcher.find() ) {
+        	        	
+        	        	if ( rowOut == 0 ) {
+        	                searchFiles[rowOut][0] = indexFiles[row][0];
+        	                ++rowOut;
+        	        	}
+        	        	else {
+        	        	
+        	        		if ( Objects.equals( searchFiles[rowOut][0], indexFiles[row][0]) ) {
+        	        	
+        	        		continue;
+        	        	    }
+        	        	    else {
+        	                    searchFiles[rowOut][0] = indexFiles[row][0];
+        	                    ++rowOut;
+        	        	    }
+        		        }
+        	        }
+    	        }
+	            ++row;
+    	    }   
     	} 
-		
- //   	String[][] searchFiles = {
-  //  			{"C:/Temp/word-doc-all.docx"},
-  //  			{"C:/Temp/excel-doc1-all.xlsx"}
-  //  	};
-            
-        return searchFiles;
+    	return searchFiles;
     }
     
     public static String[][] searchButtonAnyRadioButton(String searchText) throws IOException {
@@ -103,6 +123,7 @@ public class SearchWindowButtons {
         	        	if ( rowOut == 0 ) {
         	                searchFiles[rowOut][0] = indexFiles[row][0];
         	                ++rowOut;
+        	                break;
         	        	}
         	        	else {
         	        	
@@ -111,8 +132,9 @@ public class SearchWindowButtons {
         	        		continue;
         	        	    }
         	        	    else {
-        	                searchFiles[rowOut][0] = indexFiles[row][0];
-        	                ++rowOut;
+        	                    searchFiles[rowOut][0] = indexFiles[row][0];
+        	                    ++rowOut;
+        	                    break;
         	        	    }
         		        }
         	        }
