@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -67,19 +68,59 @@ public class SearchWindowButtons {
     }
     
     public static String[][] searchButtonAnyRadioButton(String searchText) throws IOException {
-        // add code to search with radio button selection
-        //              and return search results to main window
-        // display_Search_Results();
+
+    	String[] anySearchText = searchText.split(" ");
     	
-    	
+    	//get list of files from the index file
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+        
+    	String[][] searchFiles = new String[20][2];
     	
-    	String[][] searchFiles = {
-    			{"C:/Temp/word-doc-any.docx"},
-    			{"C:/Temp/excel-doc1-any.xlsx"}
-    	};
-            
-        return searchFiles;
+    	//int row = 0;
+    	int rowOut=0;
+    	//loop through the files and search each file for a pattern match
+    	
+    	//int anyRow = 0;
+    	for (int anyRow = 0; anyRow < anySearchText.length; anyRow++){
+    		
+        	int row = 0;
+        	
+    	    while ( indexFiles[row][0] != null ) {
+	        
+    		    File searchIndexFile = new File(indexFiles[row][0]);
+    		
+    		    Scanner sc = new Scanner( searchIndexFile );
+        	
+	            while (sc.hasNextLine() ) {
+	        	
+			        String inp = sc.nextLine();      
+        
+        	        Pattern pattern = Pattern.compile(anySearchText[anyRow]);
+        	        Matcher matcher = pattern.matcher(inp);
+        	        
+        	        if ( matcher.find() ) {
+        	        	
+        	        	if ( rowOut == 0 ) {
+        	                searchFiles[rowOut][0] = indexFiles[row][0];
+        	                ++rowOut;
+        	        	}
+        	        	else {
+        	        	
+        	        		if ( Objects.equals( searchFiles[rowOut][0], indexFiles[row][0]) ) {
+        	        	
+        	        		continue;
+        	        	    }
+        	        	    else {
+        	                searchFiles[rowOut][0] = indexFiles[row][0];
+        	                ++rowOut;
+        	        	    }
+        		        }
+        	        }
+    	        }
+	            ++row;
+    	    }   
+    	} 
+    	return searchFiles;
     }
     
     public static String[][] searchButtonExactRadioButton(String searchText) throws IOException {
