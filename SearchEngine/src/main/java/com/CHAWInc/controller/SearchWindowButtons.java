@@ -4,6 +4,7 @@ import com.CHAWInc.controller.MaintenanceWindowButtons;
 import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 import static java.nio.file.StandardWatchEventKinds.OVERFLOW;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -11,6 +12,9 @@ import java.nio.file.Paths;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -25,22 +29,39 @@ import javax.swing.JOptionPane;
 public class SearchWindowButtons {
 	
     public static String[][] searchButtonAllRadioButton(String searchText) throws IOException {
-        // add code to search with radio button selection
-        //              and return search results to main window
-        // display_Search_Results();
     	
-    	//System.out.println(searchText);
+    	//get list of files from the index file
+    	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+        
+    	String[][] searchFiles = new String[20][2];
     	
-		String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+    	int row = 0;
     	
-    	
+    	//loop through the files and search each file for a pattern match
+    	while ( indexFiles[row][0] != null ) {
+	        
+    		File searchIndexFile = new File(indexFiles[row][0]);
+    		
+    		Scanner sc = new Scanner( searchIndexFile );
+        	
+	        while (sc.hasNextLine() ) {
+ 
+	        	
+			    String inp = sc.nextLine();      
+        
+        	    Pattern pattern = Pattern.compile(searchText);
+        	    Matcher matcher = pattern.matcher(inp);
+        	    if (matcher.find()) {
+        	        searchFiles[row][0] = indexFiles[row][0]; 
+        		}
+    	    }
+	        ++row;
+    	} 
 		
-		
-		
-    	String[][] searchFiles = {
-    			{"C:/Temp/word-doc-all.docx"},
-    			{"C:/Temp/excel-doc1-all.xlsx"}
-    	};
+ //   	String[][] searchFiles = {
+  //  			{"C:/Temp/word-doc-all.docx"},
+  //  			{"C:/Temp/excel-doc1-all.xlsx"}
+  //  	};
             
         return searchFiles;
     }
@@ -62,19 +83,36 @@ public class SearchWindowButtons {
     }
     
     public static String[][] searchButtonExactRadioButton(String searchText) throws IOException {
-        // add code to search with radio button selection
-        //              and return search results to main window
-        // display_Search_Results();
     	
+    	//get list of files from the index file
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
+        
+    	String[][] searchFiles = new String[20][2];
     	
-    	
-    	String[][] searchFiles = {
-    			{"C:/Temp/word-doc-exact.docx"},
-    			{"C:/Temp/excel-doc1-exact.xlsx"}
-    	};
-            
-        return searchFiles;
+    	int row = 0;
+    	int rowOut=0;
+    	//loop through the files and search each file for a pattern match
+    	while ( indexFiles[row][0] != null ) {
+	        
+    		File searchIndexFile = new File(indexFiles[row][0]);
+    		
+    		Scanner sc = new Scanner( searchIndexFile );
+        	
+	        while (sc.hasNextLine() ) {
+ 
+	        	
+			    String inp = sc.nextLine();      
+        
+        	    Pattern pattern = Pattern.compile(searchText);
+        	    Matcher matcher = pattern.matcher(inp);
+        	    if (matcher.find()) {
+        	        searchFiles[rowOut][0] = indexFiles[row][0];
+        	        ++rowOut;
+        		}
+    	    }
+	        ++row;
+    	} 
+    	return searchFiles;
     }
     public static void onClickAboutButton() {
         Object[] options = {"OK"};
