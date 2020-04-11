@@ -152,7 +152,8 @@ public class SearchWindowButtons {
     		y = 0;
     		while ( intermedSearchFiles[y] != null ) {
     			if ( Objects.equals( indexFiles[x][0], intermedSearchFiles[y])) {
-    				searchFiles[x][0] = intermedSearchFiles[x];
+    				searchFiles[x][0] = intermedSearchFiles[y];
+    				break;
     			}
     			++y;
     		}
