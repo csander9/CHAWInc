@@ -37,7 +37,7 @@ public class SearchWindowButtons {
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
         
     	String[][] searchFiles = new String[20][2];
-    	String[] intermedSearchFiles = new String[1000]; // = new String[20][2];
+    	String[] intermedSearchFiles = new String[1000]; 
     	
     	//int row = 0;
     	int rowOut=0;
@@ -98,7 +98,7 @@ public class SearchWindowButtons {
     	
     	//get list of files from the index file
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
-        
+    	String[] intermedSearchFiles = new String[1000];
     	String[][] searchFiles = new String[20][2];
     	
     	//int row = 0;
@@ -126,18 +126,18 @@ public class SearchWindowButtons {
         	        if ( matcher.find() ) {
         	        	
         	        	if ( rowOut == 0 ) {
-        	                searchFiles[rowOut][0] = indexFiles[row][0];
+        	                intermedSearchFiles[rowOut] = indexFiles[row][0];
         	                ++rowOut;
         	                break;
         	        	}
         	        	else {
         	        	
-        	        		if ( Objects.equals( searchFiles[rowOut][0], indexFiles[row][0]) ) {
+        	        		if ( Objects.equals( intermedSearchFiles[rowOut], indexFiles[row][0]) ) {
         	        	
         	        		continue;
         	        	    }
         	        	    else {
-        	                    searchFiles[rowOut][0] = indexFiles[row][0];
+        	                    intermedSearchFiles[rowOut] = indexFiles[row][0];
         	                    ++rowOut;
         	                    break;
         	        	    }
@@ -146,7 +146,19 @@ public class SearchWindowButtons {
     	        }
 	            ++row;
     	    }   
-    	} 
+    	}
+       	int x=0,y=0;
+    	while ( indexFiles[x][0] != null ) {
+    		y = 0;
+    		while ( intermedSearchFiles[y] != null ) {
+    			if ( Objects.equals( indexFiles[x][0], intermedSearchFiles[y])) {
+    				searchFiles[x][0] = intermedSearchFiles[x];
+    			}
+    			++y;
+    		}
+            ++x;
+    	}
+    	
     	return searchFiles;
     }
     
