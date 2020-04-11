@@ -37,14 +37,12 @@ public class SearchWindowButtons {
     	String[][] indexFiles = MaintenanceWindowButtons.tableFileData();
         
     	String[][] searchFiles = new String[20][2];
+    	String[] intermedSearchFiles = new String[1000]; // = new String[20][2];
     	
     	//int row = 0;
     	int rowOut=0;
     	//loop through the files and search each file for a pattern match
     	
-    	int numWords = anySearchText.length;
-    	
-    	//int anyRow = 0;
     	for (int anyRow = 0; anyRow < anySearchText.length; anyRow++){
     		
         	int row = 0;
@@ -63,27 +61,34 @@ public class SearchWindowButtons {
         	        Matcher matcher = pattern.matcher(inp);
         	        
         	        if ( matcher.find() ) {
+        	            
+        	        	intermedSearchFiles[rowOut] = indexFiles[row][0];
+        	            ++rowOut;
+        	            break;
         	        	
-        	        	if ( rowOut == 0 ) {
-        	                searchFiles[rowOut][0] = indexFiles[row][0];
-        	                ++rowOut;
-        	        	}
-        	        	else {
-        	        	
-        	        		if ( Objects.equals( searchFiles[rowOut][0], indexFiles[row][0]) ) {
-        	        	
-        	        		continue;
-        	        	    }
-        	        	    else {
-        	                    searchFiles[rowOut][0] = indexFiles[row][0];
-        	                    ++rowOut;
-        	        	    }
-        		        }
         	        }
     	        }
 	            ++row;
     	    }   
-    	} 
+    	}
+    	//int z = 0;
+    	int numWords = anySearchText.length;
+    	int x=0,y=0,z=0;
+    	
+    	while ( indexFiles[x][0] != null ) {
+    		y = 0;
+    		z = 0;
+    		while ( intermedSearchFiles[y] != null ) {
+    			if ( Objects.equals( indexFiles[x][0], intermedSearchFiles[y])) {
+    				++z;
+    			}
+    			++y;
+    		}
+    		if ( z == numWords ) 
+    			searchFiles[x][0] = intermedSearchFiles[x];
+    		++x;
+    	}
+    	
     	return searchFiles;
     }
     
@@ -171,6 +176,7 @@ public class SearchWindowButtons {
         	    if (matcher.find()) {
         	        searchFiles[rowOut][0] = indexFiles[row][0];
         	        ++rowOut;
+        	        break;
         		}
     	    }
 	        ++row;
